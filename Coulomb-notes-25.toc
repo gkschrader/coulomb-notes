@@ -1,0 +1,22 @@
+\contentsline {section}{\tocsection {}{1}{Introduction and plan}}{1}{section.1}%
+\contentsline {section}{\tocsection {}{2}{Equivariant $K$-theory}}{1}{section.2}%
+\contentsline {subsection}{\tocsubsection {}{2.1}{Pushforward and pullback}}{2}{subsection.2.1}%
+\contentsline {subsection}{\tocsubsection {}{2.2}{Tensor product}}{3}{subsection.2.2}%
+\contentsline {subsection}{\tocsubsection {}{2.3}{Convolution}}{4}{subsection.2.3}%
+\contentsline {subsection}{\tocsubsection {}{2.4}{Equivariant sheaves}}{5}{subsection.2.4}%
+\contentsline {subsection}{\tocsubsection {}{2.5}{Equivariant descent and induction}}{7}{subsection.2.5}%
+\contentsline {section}{\tocsection {}{3}{Koszul complex and the Thom isomorphism}}{8}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{$K$-theory of projective space}}{8}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{Decomposition of the diagonal}}{10}{subsection.3.2}%
+\contentsline {section}{\tocsection {}{4}{Cell decompositions and K\"unneth-type formulas}}{13}{section.4}%
+\contentsline {section}{\tocsection {}{5}{Convolution algebras and Demazure operators}}{16}{section.5}%
+\contentsline {subsection}{\tocsubsection {}{5.1}{Alternative model for the convolution}}{18}{subsection.5.1}%
+\contentsline {section}{\tocsection {}{6}{Affine Grassmannians and flag varieties}}{20}{section.6}%
+\contentsline {subsection}{\tocsubsection {}{6.1}{Loop rotation}}{24}{subsection.6.1}%
+\contentsline {subsection}{\tocsubsection {}{6.2}{Example computations}}{24}{subsection.6.2}%
+\contentsline {section}{\tocsection {}{7}{$K$-theoretic Coulomb branch}}{26}{section.7}%
+\contentsline {section}{\tocsection {}{8}{Equivariant localization}}{26}{section.8}%
+\contentsline {section}{\tocsection {}{9}{Coulomb branches and difference operators}}{26}{section.9}%
+\contentsline {section}{\tocsection {}{10}{Monopoles and residues}}{26}{section.10}%
+\contentsline {section}{\tocsection {}{11}{Webster's calculus: finite dimensional case}}{26}{section.11}%
+\contentsline {section}{\tocsection {}{12}{Webster's calculus for Coulomb branches}}{26}{section.12}%

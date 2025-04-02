@@ -1,0 +1,1506 @@
+
+\documentclass[11pt]{amsart}
+\oddsidemargin=0in \evensidemargin=0in 
+\textwidth=6.6in \textheight=8.7in
+
+\usepackage{amsfonts,amssymb, amscd, latexsym, graphicx, psfrag, color,float}
+\usepackage{bbm}
+
+\usepackage[all]{xy}
+
+
+\usepackage{booktabs,enumerate}
+\usepackage{multirow}
+\usepackage{mathrsfs}
+
+\usepackage{tikz,tikz-3dplot}
+\usetikzlibrary{matrix}
+\usetikzlibrary{shapes.geometric,decorations.pathreplacing}
+
+\usepackage{tikz-cd}
+
+\usepackage[margin=1in,marginparwidth=0.8in, marginparsep=0.1in]{geometry}
+
+\usepackage[bookmarks=true, bookmarksopen=true,%
+bookmarksdepth=3,bookmarksopenlevel=2,%
+colorlinks=true,%
+linkcolor=blue,%
+citecolor=blue,%
+filecolor=blue,%
+menucolor=blue,%
+urlcolor=blue]{hyperref}
+
+\linespread{1.2}
+
+\newtheorem{dummy}{dummy}[section]
+\newtheorem{lemma}[dummy]{Lemma}
+\newtheorem{problem}[dummy]{Problem}
+\newtheorem{exercise}[dummy]{Exercise}
+
+\newtheorem{theorem}[dummy]{Theorem}
+\newtheorem*{untheorem}{Main Theorem}
+\newtheorem{conjecture}[dummy]{Conjecture}
+\newtheorem{corollary}[dummy]{Corollary}
+\newtheorem{proposition}[dummy]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[dummy]{Definition}
+\newtheorem{computation}[dummy]{Computation}
+\newtheorem{construction}[dummy]{Construction}
+\newtheorem{example}[dummy]{Example}
+\newtheorem{remark}[dummy]{Remark}
+\newtheorem{claim}[dummy]{Claim}
+\newtheorem{remarks}[dummy]{Remarks}
+
+\newtheorem{question}[dummy]{Question}
+
+%--unordered commands, mostly textformatting--
+% MADE MATH BOLD
+
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\Ad}{\mathrm{Ad}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\bQ}{\mathbb{Q}}
+
+\newcommand{\Kc}{\mathcal{K}}
+\newcommand{\Gc}{\mathcal{G}}
+\newcommand{\Mca}{\mathcal{M}}
+
+
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\bT}{\mathbf{T}}
+
+\newcommand{\Gr}{\mathrm{Gr}}
+
+
+\newcommand{\bfM}{\mathbf{M}}
+\newcommand{\End}{\mathrm{End}}
+
+\newcommand{\GZ}{\mathrm{GZ}}
+\newcommand{\bfN}{\mathbf{N}}
+\newcommand{\act}{\mathrm{act}}
+
+\newcommand{\bfP}{\mathbb{P}}
+\newcommand{\Ec}{\mathcal{E}}
+\newcommand{\Fc}{\mathcal{F}}
+\newcommand{\bfT}{\mathbf{T}}
+\newcommand{\bfX}{\mathbf{X}}
+\newcommand{\bfZ}{\mathbf{Z}}
+
+\newcommand{\gl}{\mathfrak{gl}}
+
+
+\newcommand{\rmX}{\mathrm{X}}
+\newcommand{\ad}{\mathrm{ad}}
+
+\newcommand{\G}{{\rm G}}
+
+\newcommand{\cA}{\mathscr{A}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\Omega}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cX}{\mathscr {X}}
+\newcommand{\cZ}{\mathcal{Z}}
+\newcommand{\g}{\mathfrak{g}}
+\newcommand{\Oc}{\mathcal{O}}
+
+\newcommand{\h}{\mathfrak{h}}
+
+\newcommand{\eps}{{\epsilon}}
+
+
+\newcommand{\ShM}{{\cM}}
+\newcommand{\ShN}{{\cN}}
+\newcommand{\ShO}{{\cO}}
+\newcommand{\ShX}{{\cX}}
+\newcommand{\Rc}{{\mathcal{R}}}
+\newcommand{\ev}{{\mathrm{ev}}}
+
+\newcommand{\op}{\operatorname}
+
+%----------more unordered ones--------
+\newcommand{\X}{X}
+\newcommand{\Xvee}{X^\vee}
+\newcommand{\Z}{Z}
+\newcommand{\Zvee}{Z^\vee}
+\newcommand{\M}{M}
+\newcommand{\N}{N}
+\newcommand{\Mvee}{M^\vee}
+\newcommand{\Nvee}{N^\vee}
+\newcommand{\T}{\mathbf{T}}
+\newcommand{\Tvee}{\mathbf{T}^\vee}
+\newcommand{\bSi}{\mathbf{\Sigma}}
+
+\newcommand{\PGL}{\mathrm{PGL}}
+
+\newcommand{\sympol}{\triangle}
+\newcommand{\cpxpol}{\triangle^\vee}
+\newcommand{\symfan}{\Sigma}
+\newcommand{\cpxfan}{\Sigma^\vee}
+
+%-----alphabetically ordered commands-----
+
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\an}{{\op{an}}}
+
+\newcommand{\bGamma}{\mathbf{\Gamma}}
+\newcommand{\bgamma}{\mathbf{\gamma}}
+
+\newcommand{\can}{{\mathrm{can}} }
+\newcommand{\Cat}{\mathcal{C}\mathrm{at}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\Ch}{\mathrm{Ch}}
+\newcommand{\cn}[1]{\bR_{\geq 0}\langle #1\rangle}
+\newcommand{\Cone}{{\op{Cone}}}
+\newcommand{\conv}{{\op{conv}}}
+
+\newcommand{\dbar}{\bar{\partial}}
+\newcommand{\dghom}{\mathit{hom}}
+
+\newcommand{\Ext}{\mathrm{Ext}}
+
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\Fuk}{\mathrm{Fuk}}
+
+\newcommand{\gp}{{\op{gp}}}
+\newcommand{\gr}{{\op{gr}}}
+
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\hra}{\hookrightarrow}
+\newcommand{\hT}{\hat{T}}
+
+\newcommand{\n}{\mathfrak{n}}
+
+\newcommand{\Int}{\op{Int}}
+
+\renewcommand{\log}{{\op{log}}}
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\LS}{ {\Lambda_\Sigma} }
+
+\newcommand{\MSh}{\mathit{MSh}}
+\newcommand{\Mor}{\op{Mor}}
+
+\newcommand{\nat}[1]{\underline{\bf #1}}
+\newcommand{\NN}{\mathbb{N}}
+
+\newcommand{\p}{\mathrm{p}}
+\newcommand{\pa}{\partial}
+\newcommand{\Perf}{\mathrm{Perf}}
+\newcommand{\Pic}{\mathrm{Pic}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Proj}{\mathrm{Proj}\,}
+
+\newcommand{\QQ}{\mathbb{Q}}
+
+\newcommand{\ra}{\rightarrow}
+\newcommand{\Rep}{\mathit{Rep}}
+\newcommand{\RG}{\mathcal{RG}}
+\newcommand{\Rmod}{\mathsf{R}\mathrm{-mod}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\cok}{\mathrm{coker}}
+
+\newcommand{\sfR}{\mathsf{R}}
+\newcommand{\Sh}{\mathit{Sh}}
+\newcommand{\si}{\sigma}
+\newcommand{\Si}{\Sigma}
+\newcommand{\Spec}{\mathrm{Spec}\,}
+\renewcommand{\SS}{\mathit{SS}}
+\newcommand{\supp}{\mathrm{supp}}
+
+\newcommand{\tD}{\tilde{D}}
+\newcommand{\tT}{\tilde{T}}
+\newcommand{\tit}{\tilde{t}}
+\newcommand{\tih}{\tilde{h}}
+\newcommand{\todo}[1]{{\marginpar{\tiny #1}}}
+\newcommand{\Tor}{\mathrm{Tor}}
+\newcommand{\tri}{\triangle}
+\newcommand{\triang}{\mathcal T}
+\newcommand{\Tw}{{Tw\,}}
+\newcommand{\Gm}{\mathbb{G}_{\mathrm{m}}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\Li}{\mathrm{Li}}
+
+\newcommand{\Coh}{\mathrm{Coh}}
+
+
+\newcommand{\bk}{\mathbb{K}}
+
+\newcommand{\Fun}{\mathrm{Fun}}
+
+\newcommand{\uq}{\mathfrak{u}_q}
+
+\newcommand{\Lbb}{\mathbb{L}}
+
+
+
+\newcommand{\coeffs}{{\mathbbm k}}
+\newcommand{\mumon}{\mu{\rm mon}}
+\newcommand{\Mfr}{\cM_{\mathit{fr}}}
+ \numberwithin{equation}{subsection}
+\numberwithin{figure}{subsection}
+
+\newcommand{\leg}{S}
+\newcommand{\pt}{\mathrm{pt}}
+
+\newcommand{\red}[1]{{\color{red}#1}}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\green}[1]{{\color{green}#1}}
+\newcommand{\brown}[1]{{\color{brown}#1}}
+
+\newcommand\longmapsfrom{\mathrel{\reflectbox{\ensuremath{\longmapsto}}}}
+
+\newcommand{\necklace}{\Gamma^{\mathrm{neck}}}
+
+\usepackage{tikz}
+ 
+ 
+ \newcommand{\drawbox}[1]{
+     \foreach \x in {-1,1}{% Two indices running over each
+      \foreach \z in {0,...,#1}{% node on the grid we have drawn 
+       \draw[thick, -latex, red]  (\x*\z, #1*\x-\z*\x+\x) -- (\x*\z+\x,  #1*\x-\z*\x);  
+       \draw[thick, -latex, red]  (-\x*\z-\x,  #1*\x-\z*\x) --  (-\x*\z, #1*\x-\z*\x+\x); 
+         %   \draw[thick, -latex]   (\y+1, \z+\x-\y)-- (\x+\z*\y, \z-3);
+      }  
+}
+}
+ 
+\title[Math 520]{{Coulomb branch lecture notes }} 
+%\title[The Chromatic Lagrangian]{{\large Soap and chrome:}\\
+%\vskip 0.2in
+%Applications to Legendrian Surfaces
+%and \\Open Gromov-Witten Theory\\
+%}
+%\author[Gus Schrader, Linhui Shen and Eric Zaslow]{Gus Schrader${}^*$, Linhui Shen${}^{**}$ and Eric Zaslow${}^{*}$\\
+%\\
+%{\tiny ${}^*$  Department of Mathematics, Northwestern University\\
+%%{\tiny ${}^{**}$  Department of Mathematics, Boston College}\\
+%{\tiny ${}^{**}$  Department of Mathematics, Michigan State University}\\}}
+%
+%
+\begin{document}
+
+
+
+
+\maketitle
+\tableofcontents
+
+\section{Introduction and plan}
+Recall the following basic setup, which we talked about a bunch in seminar last quarter. Suppose $X$ and $Y$ are spaces, and we have some functorial way $\mathbb{L}\colon X\rightsquigarrow \mathbb{L}(X)$ 
+to `linearize' them by associating to any such space a ring $\Lbb(X)$. `Functorial' here means that nice enough maps $f:X\rightarrow Y$ induce pushforward/pullback ring homomorphisms $f_*:\Lbb(X)\rightarrow\Lbb(Y),~f^*:\Lbb(Y)\rightarrow\Lbb(X)$. An example of this setup from last quarter was when $X$ is a manifold and the linearization $\Lbb(X)=H^\bullet(X)$ is given by its singular cohomology ring (or an equivariant version if $X$ has symmetries), which we can identify with the Borel-Moore homology $H^{BM}_\bullet(X)$ by Poincar\'e duality. Here the ring structure is given by cup product, which we can think of geometrically using Poincar\'e duality as corresponding to \emph{intersection} of cycles on $X$.
+
+Then in any setup like this, $\Lbb(X\times Y)$ acts on $\Lbb(Y)$ via the convolution diagram
+$$
+\begin{tikzcd}
+& X\times Y \arrow{dl}[swap]{p_1}\arrow{dr}{p_2}  & \\
+X& & Y
+\end{tikzcd}
+$$
+In formulas, if $\mathcal{M}\in\Lbb(X\times Y)$ and $\alpha\in \Lbb(Y)$ the action is given by
+$$
+\mathcal{M}*\alpha = (p_1)_*\left(\mathcal{M}\cdot p_2^*\alpha\right).
+$$
+
+The plan for the first part of this quarter is to introduce another kind of linearization (`equivariant algebraic $K$-theory') we can do when $X$ is an algebraic variety, or a reasonable generalization thereof. Using $K$-theory instead of Borel-Moore homology to run the Coulomb branch machine will let us access algebras like quantum groups $U_q(\g)$ (as opposed to the enveloping algebras $U\g$ appearing in the homology story), and double affine Hecke algebras (rather than just their trigonometric degenerations.) And when we move to $K$-theory, we will see how cluster structures emerge for the Coulomb branch ring in many cases such as these. 
+
+\section{Equivariant $K$-theory}
+Let $X$ be a quasiprojective variety/scheme and $\Coh(X)$ the category of coherent sheaves on $X$. In the case that $X=\Spec R$ is affine, $\Coh(X)$ is the category of finitely generated $R$-modules. 
+
+Our main object of interest is the group $K(X) = K_0(\Coh(X))$ given by the Grothendieck group of the abelian category $\Coh(X)$. Recall that this is the abelian group generated by the symbols $[\mathcal{E}]$ where $\mathcal{E}$ is a coherent sheaf, and for each short exact sequence $0\rightarrow \mathcal{E}_1\rightarrow \mathcal{E}\rightarrow \mathcal{E}_2\rightarrow 0$ we impose a relation $[\mathcal{E}]=[\mathcal{E}_1]+[\mathcal{E}_2]$.
+\begin{example}
+A coherent sheaf on a point is the same this as a finite dimensional vector space. So the map sending a vector space to its dimension is an isomorphism $K(\pt)\simeq\bZ$
+\end{example}
+
+\begin{example}
+For $X=\mathbb{A}^1$, by the structure theorem for finitely generated modules over a PID we see that $K(\mathbb{A}^1)=\mathbb{Z}=K(\pt)$. In particular, all the torsion modules go to zero in (non-equivariant) $K$-theory.
+\end{example}
+
+The category $\Coh(X)$ has a subcategory $\Perf(X)$ of locally free sheaves, which in the affine case correspond to \emph{projective} $R$-modules. 
+ Although locally free sheaves are easier to work with than arbitrary coherent ones, the category $\Perf(X)$ is not abelian. Indeed, the cokernel of a map of vector bundles $\Phi:\mathcal{E}_1\rightarrow\mathcal{E}_2$ will not in general be locally free.   But from the point of view of  $K(X)$, this is a feature rather than a bug: it lets us represent  
+the class $[\cok\Phi]=[\mathcal{E}_1]-[\mathcal{E}_2]$ as the difference of two objects in $\Perf(X)$.
+
+More generally, if $X$ is smooth, then by Hilbert's syzygy theorem every coherent sheaf $\mathcal{E}$ has a finite length resolution by locally free sheaves, and hence every class in $K(X)$ can be written as a finite $\mathbb{Z}$-linear combination of classes of objects from $\Perf(X)$.
+
+
+\subsection{Pushforward and pullback}
+The basic input needed to define convolution in any setting is the ability to push forward and pull back. Here is how this works in the context of algebraic $K$-theory.
+
+If $f:X\rightarrow Y$ is an arbitrary morphism of varieties, it is not necessarily true that the direct image of a coherent sheaf of $X$ is a coherent sheaf on $Y$: for example, take $X=\mathbb{A}^1$, $\mathcal{E}=\mathcal{O}_X$ and $Y=\pt$. If the morphism $f$ is \emph{proper}, then we do get a functor $f_*:\Coh(X)\rightarrow \Coh(Y)$ but if $f$ is not affine then $f_*$ will not be exact and hence will not descend to a map on Grothendieck rings. Again, we see this failure in pretty much the simplest possible example $X=\mathbb{P}^1, Y=\pt$ where we have $H^1(\bP^1,\Oc(-2)) = R^1f_*\Oc(n)\neq0$ if $n\leq-2$.
+% where we have a SES $\mathcal{O}(-2)\rightarrow\mathcal{O}(-1)\rightarrow \Oc_{[0:1]}$ whose first two terms have vanishing global sections but whose last term gives $H^0(\bP^1,\Oc_{[0:1]})=\mathbb{C}$.
+
+The solution is to work instead with the derived functor $Rf_*$,  and define
+$$
+f_*[\Ec] := \sum_{i\geq0} (-1)^i[R^if_*\Ec].
+$$
+In the special case $Y=\pt$, the map $f_*:K(X)\rightarrow K(\pt)=\mathbb{Z}$ is just the Euler characteristic. Another important special case is when $f$ is a closed embedding, so that all the higher direct image functors in the sum above vanish.
+
+\begin{exercise}
+If $j:\mathbb{C}^2\setminus 0\hookrightarrow \mathbb{C}^2$, compute $Rj_*\mathcal{O}_{\mathbb{C}^2\setminus 0}$.
+\end{exercise}
+Given $f:X\rightarrow Y$ we can also try to define a pull-back map in $K$-theory using the pullback of coherent sheaves:
+
+$$
+f^*\Ec = f^{-1}\Ec\otimes_{f^{-1}\Oc_Y}\Oc_X,
+$$
+where $f^{-1}$ is the (exact) sheaf-theory inverse image functor. Here we run into a similar issue that unless $f$ is \emph{flat} the functor $- \otimes \Oc_X$ will not be exact. Even worse than the situation with direct image, the higher derived functors $\Tor^i(\Fc,\Oc_X)$ could be potentially be nonzero for infinitely many values of $i$. 
+\begin{exercise}
+If $S=\bC[x]/(x^2)$ is the dual numbers and $M=\bC[x]/(x)$, compute the derived endomorphisms $R\Hom_S(M,M)$.
+\end{exercise}
+So we only have a well-defined pull-back operation in $K$-theory in certain situations: for example, if $f$ is flat, or at least one of $X,Y$ is smooth. In the latter case, as discussed above any coherent sheaf $\Fc$ on the smooth one has a finite length resolution by vector bundles $F^\bullet$, which we can use to compute the $\Tor^i$, and so
+$$
+f^*[\mathcal{F}] := \sum_i(-1)^i[\Tor_{\Oc_Y}^i(\Oc_X,\Fc)]
+$$
+is indeed a finite sum. Note that by the symmetry of $\Tor$, we can alternatively compute this by resolving $\Oc_X$ by flat $f^{-1}\Oc_Y$-modules, which is often more convenient. 
+
+What's going on here is that we are really dealing with two invariants, the Grothendieck group of $\Coh(X)$ on the one hand, and that of $\Perf(X)$ on the other. The first one is naturally covariant (since proper morphisms preserve coherence), while the second is naturally contravariant (since the pullback of a vector bundle is another vector bundle -- note that this is definitely not true for pushforward; think about the case of a closed immersion where you get a torsion sheaf). So when the two invariants coincide (e.g. for smooth $X$), we get both kinds of functoriality.
+
+
+
+
+ Of course, if $f$ is flat (for example an open immersion, or an \'etale-locally trivial fibration) then all these higher Tor's vanish.
+%  In the important special case of an open immersion $f:U\rightarrow Y$, $\Coh(U)$ gets identified via $f^*$ with the quotient of the category 
+
+
+
+ 
+\subsection{Tensor product} 
+ 
+If we try to define a tensor product operation in $K$-theory we run into the same issue with Tor's that came up for pullbacks. So for tensor product to make sense in general, we should assume that $X$ is smooth, or embedded into something smooth. This is exactly like what we saw with Borel-Moore homology: recall that the product there comes from using Poincar\'e duality to identify with singular cohomology and its cup product, which only works if $X$ is smooth.
+
+Returning to K-theory, when $X$ is smooth the derived tensor product defines a commutative ring structure on $K(X)$ via
+$$
+[\Ec],[\Fc] \mapsto [\Ec\otimes^L\Fc].
+$$ Since pullback is monoidal with respect to tensor product, a morphism $f:X\rightarrow Y$ between smooth varieties induces a ring homomorphism $f^*:K(Y)\rightarrow K(X)$. This isn't always true of pushforward, at least without extra hypotheses (e.g. $f$ being an open immersion.) 
+
+Recall the projection formula from algebraic geometry: given $f:X\rightarrow Y$, a quasicoherent sheaf $\Fc$ on $X$ and a vector bundle $\mathcal{V}$ (or more generally a perfect complex, provided we understand $\otimes,f^*$ also as their derived versions) on $Y$ the natural map 
+$$
+Rf_*\Fc\otimes \mathcal{V}\rightarrow Rf_*\left(\Fc\otimes f^*\mathcal{V}\right)
+$$
+is an isomorphism. It follows that $f_*:K(X)\rightarrow K(Y)$ is linear over classes pulled back from $K(Y)$. Exercises of the following kind can be helpful for parsing and getting some intuition for statements like the projection formula, or the flat base change we'll use in the next section:
+\begin{exercise}
+Write out what the projection formula (resp. flat base change) says when $X,Y$ are affine, and when $X,Y$ are finite sets.
+\end{exercise}
+An important special case of the projection formula is that of a closed embedding of $X$ into a smooth $Y$, for which $f_*$ is exact and we have $f_*f^*\mathcal{V} = \mathcal{V}\otimes f_*\mathcal{O}_X$. Hence for any class $\Ec$ in $K$-theory of $Y$ we have 
+\begin{align}
+\label{eq:pushpull-closed}
+f_*f^*[\Ec] = [\Ec]\cdot[\Oc_X]
+\end{align}
+ where we have abused notation writing $[\Oc_X]= [f_*\Oc_X]$ and $\cdot $ for the ring structure defined by the derived tensor product.
+
+
+
+Even if $X$ is not smooth, the functor of tensoring with a locally free sheaf \emph{does} descend to a map on $K$-theory. 
+
+
+\subsection{Convolution}
+Now suppose that $X,Y$ are varieties with $Y$ smooth and proper. Then we can define a map
+$$
+\star\colon K(X\times Y)\otimes K(Y)\rightarrow  K(X), \quad \gamma\mapsto (p_X)_*\left(\mathcal{K}\otimes p_Y^*\gamma\right).
+$$
+This is well-defined since $p_X$ is proper (because $Y$ is), and since $p_Y$ is flat and $Y$ is smooth, $p_Y^*\gamma$ admits a finite resolution by vector bundles so the tensor product is well-defined. In particular, for each class $\Mca\in K(X\times Y)$ we get a map
+$$
+\act_\Mca \colon K(Y)\rightarrow K(Y), \quad \gamma\mapsto \Mca\star \gamma.
+$$
+So for smooth proper $X$, we can define convolution on $K_G(X\times X)$ in the usual way, setting
+\begin{align}
+\label{eq:convolution-mm}
+\Mca\star\Kc = (p_{13})_*\left(p_{12}^*\Mca\otimes p_{23}^*\Kc\right),
+\end{align}
+where the $p_{ij}$ stand for projections on to the different pairs of factors in $X\times X\times X$. We have a `left multiplication' map
+$$
+L_\Mca \colon  K(X\times X)\rightarrow K(X\times X), \quad \Kc\mapsto \Mca\star\Kc.
+$$
+
+\begin{lemma}
+For all $\Ec\in K(X)$ and $\Mca\in K(X\times X)$, the class of the diagonal $\Oc_\Delta\in K(X\times X)$ satisfies 
+$$
+[\Oc_\Delta]\star \Ec =\Ec,\qquad [\Oc_\Delta]\star \Mca = \Mca\star [\Oc_\Delta] .
+$$
+\end{lemma}
+
+\begin{proof}
+ The action by $\Oc_\Delta$ map on $K(X)$ is
+$$
+\Ec\mapsto \Oc_\Delta\star \Ec:=(p_1)_*\left(p_2^*[\Ec]\cdot [\Oc_{\Delta}]\right)
+$$
+By the push-pull~\eqref{eq:pushpull-closed} applied to the diagonal inclusion $i:X\rightarrow X\times X$ we have 
+$$
+(p_1)_*\left((p_2^*[\Ec])\cdot[\Oc_\Delta]\right) 
+%= (p_1)_*i_*((i^*\circ p_2^*)[\Ec]\otimes\Oc_X)
+=(p_1)_*i_*((i^*\circ p_2^*)[\Ec])=[\Ec]
+$$
+since $p_2\circ i = \mathrm{id}_X=p_1\circ i$.
+%But since the projection $p_2$ is flat, we have $Li^*\circ Lp_{2}^* = L(p_2\circ i)^* = \mathrm{id}$ since $p_2\circ i = \mathrm{id}_X$. And we have $R(p_1)_*\circ Ri_*=\mathrm{id}$, so indeed $\Oc_\Delta\star \Ec=\Ec$.
+
+%\begin{remark}
+%\label{rmk:fiber-conv}
+%More generally, we can use a similar trick to convolve with the structure sheaf of a class of the form $X\times_Y X$
+%\end{remark}
+Now consider the triple product $Y\times X\times X$. By flat base change for the cartesian square
+$$
+\begin{tikzcd}
+Y\times X \arrow{r}{p_2} \arrow[swap]{d}{j}& X \arrow{d}{i} \\
+Y\times X\times X \arrow[swap]{r}{p_{23}} & X\times X
+\end{tikzcd}
+$$
+we have $p_{23}^*\Oc_\Delta = j_*\Oc_{Y\times X}$ where $j:Y\times X\rightarrow Y\times X\times X$ is the diagonal inclusion.
+So by the same reasoning as above with $j$ in place of $i$, for any $\mathcal{M} \in K_G(Y\times X)$ we have
+$$
+(p_{13})_*\left(p_{12}^*\mathcal{M}\cdot p_{23}^*\Oc_\Delta\right)=\mathcal{M}.
+$$
+
+\end{proof}
+
+
+
+\begin{lemma}
+Show that we have 
+$$
+\act_\Kc \circ \act_\Mca = \act_{\Mca\star\Kc}\in \End ~K(Z).
+$$
+\end{lemma}
+\begin{proof}
+Let 
+$p_Z:Y\times Z\rightarrow Z,~p_X:X\times Z\rightarrow X$ and consider  the following Cartesian square:
+$$
+\begin{tikzcd}
+X\times Y \times Z\arrow{r}{p_{Y,Z}} \arrow[swap]{d}{p_{X,Y}}& Y\times Z \arrow{d}{p_Y} \\
+X\times Y\arrow[swap]{r}{p'_{Y}} & Y
+\end{tikzcd}
+$$
+We need to compute
+$$
+(\act_\Kc \circ \act_\Mca)(\gamma) = (p_X)_*\left(\Kc\otimes (p'_Y)^*(p_Y)_*\left(\Mca\otimes p_Z^*\gamma\right) \right).
+$$
+Using flat base change for the square above and setting $q_Z:X\times Y\times Z\rightarrow Z$ etc. we have
+\begin{align*}
+(\act_\Kc \circ \act_\Mca)(\gamma) &= (p_X)_*\left(\Kc\otimes (p_{X,Y})_*p_{Y,Z}^*\left(\Mca\otimes p_Z^*\gamma\right) \right)\\
+&=(p_X)_*\left(\Kc\otimes (p_{X,Y})_*\left(p_{Y,Z}^*\Mca\otimes q_Z^*\gamma\right) \right)\\
+&=(p_X)_*(p_{X,Y})_*\left(p_{X,Y}^*\Kc\otimes (p_{X,Y})_*\left(p_{Y,Z}^*\Mca\otimes p_Z^*\gamma\right) \right)\\
+&=(q_X)_*\left(p_{X,Y}^*\Kc\otimes p_{Y,Z}^*\Mca\otimes q_Z^*\gamma \right)
+\end{align*}
+where we applied the projection formula to $p_{X,Y}$. 
+On the other hand, if $p'_Z:X\times Z\rightarrow Z$, by the projection formula for $p_{XZ}$ we have
+\begin{align*}
+\act_{\Mca\star \Kc}(\gamma) &=(p_X)_*\left( (p_{XZ})_*(p_{XY}^*\Mca\otimes p_{YZ}^*\Kc)\otimes (p'_Z)^*\gamma\right)\\
+&=(q_X)_*\left( p_{XY}^*\Mca\otimes p_{YZ}^*\Kc\otimes p_{XZ}^*(p'_Z)^*\gamma\right)\\
+&=(q_X)_*\left( p_{XY}^*\Mca\otimes p_{YZ}^*\Kc\otimes q_Z^*\gamma\right).
+\end{align*}
+\end{proof}
+\begin{remark}
+If we knew the map $\Mca\rightarrow \act_\Mca$ was injective, the Lemma above would imply associativity of the convolution.  As we'll see next lecture, this is indeed the case for the varieties we care about, which have the K\"unneth property.
+\end{remark}
+\begin{exercise}
+Check directly that convolution in $K$-theory is associative by showing 
+\begin{align}
+\label{eq:conv-assoc}
+(\Kc\star\mathcal{L})\star\Mca = (p_{XW})_*\left(p_{XY}^*\Kc\otimes p_{YZ}^*\mathcal{L}\otimes p_{ZW}^*\Mca\right)=\Kc\star(\mathcal{L}\star\Mca).
+\end{align}
+\end{exercise}
+
+
+\subsection{Equivariant sheaves}
+We are going to be interested in the case of varieties $X$ with an action $\alpha:G\times X\rightarrow X$ of an algebraic group $G$. Recall that an equivariant vector bundle $E$ on $X$ is a vector bundle together with a $G$-action on the total space of $E$ which is linear on the fibers. More algebraically, this is the same data as a bundle isomorphism
+$$
+I\colon a^*E\simeq p^*E,
+$$
+where $p:G\times X\rightarrow X$ is the projection to the second factor,
+plus a compatibility condition on the pullbacks of $I$ under the three maps $G\times G\times X\rightarrow G\times X$  given by multiplication, action, and projection. This compatibility condition imposes the fact we have an \emph{action} of $G$ on the total space of the vector bundle.
+\begin{exercise}
+Spell out this cocycle condition.
+\end{exercise}
+ The same algebraic data makes sense with $E$ replaced by an arbitrary coherent sheaf $\Ec$. We take it as our definition of an equivariant structure on $\Ec$ and consider the category $\Coh_G(X)$ of $G$-equivariant coherent sheaves on $X$ whose objects are coherent sheaves equipped with an equivariant structure. Note that an equivariant structure need not exist for a general coherent sheaf on $X$! 
+
+We define the $G$-equivariant $K$-theory of $X$ to be the Grothendieck group $K_G(X)$ of the category of $G$-equivariant coherent sheaves on $X$.
+
+\begin{example}
+\label{eg:kpoint}
+A $G$-equivariant coherent sheaf on $X=\pt$ is the same thing as a finite-dimensional vector space with an action of $G$. So $K_G(\pt)$ is the \emph{representation ring} $R(G)$ of $G$. Here are some important sub-examples: 
+\begin{itemize}
+\item If $T$ is a torus, $K_T(\pt)$ is the group ring of the character lattice of $T$. As a sub-sub-example, $K_{\mathbb{C}^*}(\pt)=\mathbb{Z}[x^{\pm1}]$ is the ring of Laurent polynomials in a single variable, where $x^n$ represents the class of the character $z\mapsto z^n$.
+
+\item If $G$ is a complex semisimple Lie group with weight lattice\footnote{The weight lattice of $G$ is the character lattice of its Cartan torus $T=B/[B,B]$.} $\Lambda$  and Weyl group $W$, it follows from e.g. Weyl's formula that $K_G(\pt)=\mathbb{Z}[\Lambda]^W=K_T(\pt)^W$. As a sub-sub-example, $K_{GL_n}(\pt)=\bZ[w_1^{\pm1},\ldots,w_n^{\pm1}]^{S_n}$ is the ring of symmetric Laurent polynomials in $n$ variables.
+\item If $B\subset G$ is a Borel (maximal closed, connected, solvable) subgroup then by Lie's theorem $K_B(\pt)=K_T(\pt)=\bZ[\Lambda]$.
+\end{itemize}
+Recall Chevalley's theorem, which says that $\bZ[\Lambda]$ is a free module of rank $|W|$ over the invariant ring $\bZ[\Lambda]^W$. So the same is true of $K_T(\pt)$ as a $K_G(\pt)$-module. 
+\end{example}
+
+Given a pair of $G$-varieties $X,Y$, the exact `external tensor product' functor 
+$$
+\Coh_G(X)\times \Coh_G(Y)\rightarrow \Coh_G(X\times Y),\quad \Ec\otimes\Fc \rightarrow p_X^*\Ec\otimes p_Y^*\Fc
+$$ defines a map
+\begin{align}
+\label{eq:multiplication}
+K_G(X)\otimes K_G(Y)\rightarrow K_G(X\times Y),\quad .
+\end{align}
+In particular, for any $G$-variety $X$, setting $Y=\pt$ we see that $X\rightarrow \pt$ makes $K_G(X)$ into a module over $K_G(\pt)= R(G)$,  and the map~\eqref{eq:multiplication} is $R(G)$-bilinear with respect to this module structure.
+
+\begin{example}
+If $X=\Spec R$ is affine, a $G$-equivariant coherent sheaf on $X$ is a finitely generated $R$-module $M$ equipped with an action of $G$ such that the module structure map
+$$
+R\otimes M \rightarrow M
+$$
+is a map of $G$-representations.
+\end{example}
+\begin{exercise}
+Spell out the description in the previous example starting from the definition of an equivariant structure on $M$.
+\end{exercise}
+
+\subsection{Equivariant descent and induction}
+If $G$ acts freely on $X$, then for any reasonable notion of quotient $Y=X/G$ we should have $\pi^*:\Coh(Y) \simeq \Coh_G(X)$ for $\pi:X\rightarrow X/G$. The inverse equivalence is given by pushing forward and taking $G$-invariants. In particular, in this situation we have $K_G(X)=K(Y)$.  For example, we have $K_G(G)=K(\pt)=\mathbb{Z}$.
+
+ If $H$ is a subgroup of $G$, then we have the following `induction' functor from $H$-spaces to $G$-spaces:
+$$
+\mathrm{ind} \colon X \mapsto G\times^H X := (G\times X)/H, 
+$$
+where $h\cdot(g,x)= (gh^{-1},h\cdot x)$ and the $G$ action on $G\times^H X $ is the residual one coming from left multiplication on the $G$ factor. If $E$ is an $H$-equivariant vector bundle over $X$, then $\mathrm{ind}(E)$ is a $G$-equivariant vector bundle on $\mathrm{ind}(X)$.
+
+
+This functor shows up all the time in geometric representation theory and convolution algebras. 
+
+ For example, when $X=\pt$ is a point (so that equivariant vector bundles $V$ on $X$ are just representations of $H$), then $G\times^H V$ is a $G$-equivariant vector bundle over $G/H$ with fibers modeled on $V$. More generally, projecting to the first factor is a flat map 
+$$
+G\times^H X\rightarrow G/H
+$$
+with fibers isomorphic to $X$. In particular,  the fiber over the basepoint $eH$ recovers the original $H$-space $X$.  The `restriction' functor 
+$$
+\mathrm{res}^G_H\colon \Coh^G(G\times^H X)\rightarrow \Coh^H(X).
+$$
+is an equivalence of categories, with the inverse functor given by taking an $H$-equivariant sheaf $\Ec$ on $X$, pulling it back along the flat map $p:G\times X\rightarrow X$ to get a $G\times H$-equivariant sheaf $p^*\Ec$ on $G\times X$. Since the latter space is a $H$-torsor over $G\times^H H$, we can then equivariantly-descend this sheaf to get a $G$-equivariant sheaf on $G\times^H H$. Another way to phrase this is as the composite of isomorphisms
+$$
+K_G(G\times^H X) \simeq K_{G\times H}(G\times X)  \simeq K_{H}( X), 
+$$
+where the first isomorphism is equivariant ascent along $H$ and the second equivariant descent along $G$. Another useful identity in the same spirit: if $Y$ is a $G$-space, we have
+$$
+K_G(G/H\times Y)\simeq K_{G\times H}(G\times Y)\simeq K_{H}(Y).
+$$
+The $G\times H$-action on the middle space is $(g,h)\cdot (g_0,y) = (gg_0h^{-1},gy)$ and the last map is descent for the $G$-torsor $(g_0,y)\mapsto g_0^{-1}\cdot y$.
+
+\begin{exercise}
+\label{ex:small-model}
+Show that as $G$-spaces
+$$
+G/H\times G/H \simeq G\times^HG/H
+$$
+\end{exercise}
+
+\begin{computation} We compute 
+$$
+K_G(G/B)=K_G(G\times^B\pt)=K_B(\pt)=K_T(\pt)=\mathbb{Z}[\Lambda].
+$$
+As a sub-example, we have 
+$$
+K_{GL_2}(\bP^1) \simeq \bZ[w_1^{\pm1},w_2^{\pm1}].
+$$
+So from Example~\ref{eg:kpoint}, we see that $K_G(G/B)$ is a free module over $K_G(\pt)$ of rank $|W|$. 
+%In a couple of lectures' time we will see a geometric/combinatorial explanation for this without appealing to Chevalley's theorem.
+
+
+The key player in the convolution algebra story is of course the variety $G/B\times G/B$.  
+In a similar way to the above we can compute
+$$
+K_G(G/B\times G/B)\simeq K_{G\times B\times B}(G\times G)\simeq K_{ B\times B}(G)\simeq K_B(G/B),
+$$
+where the second isomorphism is equivariant descent along the $G$-torsor $(g_1,g_2)\mapsto g_1g_2^{-1}$ and the last is equivariant descent along the right multiplication action of $B$ on $G$.
+\end{computation}
+ To be able to go further we need a more explicit description, however -- ideally one relating $K_G(G/B\times G/B)$ to $K_G(G/B)$ as the Kunneth formula would do for ordinary cohomology.  In the next lecture we explain how to get such a description, which requires introducing some more machinery in equivariant $K$-theory.
+
+\section{Koszul complex and the Thom isomorphism}
+\subsection{$K$-theory of projective space}
+As a warm-up to computing $K_B(G/B)$, let's work out an explicit computation of
+$K_{H}(\mathbb{P}^{n-1})$ {for some closed subgroups $H$ of $GL(\bC^n)$.} We use the description 
+$$
+\mathbb{P}^{n-1} = \left(\bC^n\setminus\{0\}\right) / GL_1
+$$
+which exhibits $GL_1$-space $\mathbb{P}(\bC^n)$ as the quotient of the $GL_n$-space $\bC^n\setminus\{0\}$ by a free action of $GL_1$. Hence by equivariant descent we have an isomorphism
+$$
+K_{H}(\mathbb{P}^{n-1}) \simeq K_{H\times GL_1}(\bC^n\setminus\{0\}).
+$$
+Set $\tilde H:=H\times GL(1)$. To compute $K_{{\tilde H}}(\bC^n\setminus\{0\})$ we use the (end of) the long exact sequence in algebraic $K$-theory associated to a closed subvariety $Z\subset X$ with complementary open $U=X\setminus Z$. Recall that pushforward along the closed embedding  gives an equivalence of categories of $\Coh(Z)$ with the category of coherent sheaves on $X$ with support on $Z$, and these sheaves form a Serre subcategory (if two terms in a short exact sequence are objects, so is the third), and the pullback $j^*$ identifies the category $\Coh(U)$ with the corresponding quotient category. At the level of $K$-theory, we an exact sequence of Grothendieck groups
+\begin{align}
+\label{eq:excision}
+K_{\tilde H}(Z)\rightarrow K_{\tilde H}(X)\rightarrow K_{\tilde H}(U)\rightarrow 0.
+\end{align}
+The first map does not have to be injective in general (e.g. think about a $Z$ curve of genus $>1$ in $\bP^2$). We apply this to the inclusion of the fixed point at the origin $\{o\}\rightarrow V$ to get
+$$
+K_{\tilde H}(\{o\}) \rightarrow K_{\tilde H}(V) \rightarrow K_{\tilde H}(V\setminus\{o\})\rightarrow 0
+$$
+The image of the left map is generated as a $K_{{\tilde H}}(\pt)$-module by the class of the structure sheaf $[\Oc_{\{o\}}]$, which is the torsion module over $\mathbb{C}[V]=\mathrm{Sym} V^*$ given by $\bC[x_1,\ldots x_n]/\langle x_1,\ldots x_n\rangle$. We can use the \emph{Koszul complex} to resolve it by equivariant vector bundles as follows. 
+
+Consider the complex of free $\mathbb{C}[V]$-modules $\mathbb{C}[V]\otimes \Lambda^\bullet V^* $ with the differential given by contracting with the identity map $I:V\rightarrow V$:
+$$
+I = \sum_i x_i\otimes e_i \in V^*\otimes V, \quad \langle e_i,x_j\rangle=\delta_{ij}.
+$$
+In coordinates, we have
+$$
+f(x)\otimes x_{i_1}\wedge\ldots\wedge x_{i_k} \mapsto \sum_{r=0}^{k}(-1)^{r+1}x_{i_r}f(x)\otimes x_{i_1}\wedge\cdots\widehat{x}_{i_r}\cdots\wedge x_{i_k}.
+$$
+Since $x_1,\ldots, x_n$ form a regular sequence (i.e. the  ideal $\{x_i=0\}$ cutting out the origin is a complete intersection), this Koszul complex is exact everywhere except the last step and so gives a resolution of $\bC[x_1,\ldots x_n]/\langle x_1,\ldots x_n\rangle$ by free modules.
+\begin{exercise}
+For $n=2$, we can visualize the elements of the monomial basis $\{x^ny^m\}$ for $\bC[x,y]$ as the lattice point $(n,m)$ in the first quadrant of $\mathbb{Z}^2$. Draw a picture of the Koszul resolution of the structure sheaf of the origin.
+\end{exercise}
+In order to get a complex of equivariant vector bundles, we need to \emph{define} an action of $GL(V)\times GL(1)$ on each term in such a way that the differentials become intertwiners.
+
+If we let $GL(V)$ act diagonally $\mathbb{C}[V]\otimes \Lambda^\bullet V^*$ via the dual of the defining representation, this works since the pairing between $V$ and $V^*$ used to construct the differential is $GL(V)$-invariant. In other words, the class in $K_{GL_n}(V)$ used to construct the $k$-th term of the resolution is $\pi^*[\Lambda^k V^*]$ where $\pi:V\rightarrow \pt$. On the other hand, if $\chi^m$ is the character $z\mapsto z^m$ of $GL(1)$, then $\pi^*[\chi_m]$ is the twist of $\bC[V]$ where things in the degree $l$-th piece of the symmetric algebra have weight $m+l$. So in order to have the differentials be maps of $GL(1)$-modules, we should impose that $GL(1)$ acts diagonally on $\Lambda^kV^*$ by $\chi^{-k}$, so that the $k$-th term of the resolution is
+$$
+\pi^*\left( \Lambda^k V^*\boxtimes \chi^{-k}\right)= e_k(w_1,\ldots, w_{n})s^{-k}\cdot \Oc_V.
+$$
+Hence in $K_H$ we get
+$$
+[\Oc_{\{o\}}] =  [\Oc_{V}]\sum_{k=0}^{n}(-1)^k [\Lambda^k V^*\boxtimes \chi^{-k}].
+$$
+For $H=G$, under the isomorphism $K_G(\pt)\simeq \mathbb{Z}[\Lambda]^W$ this reads
+$$
+[\Oc_{\{o\}}] = [\Oc_V]\cdot\sum_{k=0}^{n}(-1)^ke_k(w_1,\ldots, w_{n})s^{-k} = [\Oc_V]\prod_{i=1}^{n}(1-s^{-1}w_i).
+$$
+The same formula holds for $H=B,T$, the only difference being that the base ring is the larger one $\bZ[\Lambda]=\bC[w_1^{\pm1},\ldots, w^{\pm1}_{n}]$ of all Laurent polynomials.
+
+To finish the calculation, we use the fact that \emph{all} $H$-equivariant bundles on $V$ are pulled back from $K_{H}(\pt)$:
+\begin{claim}
+\label{claim:thom}
+The map $\pi^*\colon K_H(\pt)\rightarrow K_H(V)$ is an isomorphism.
+\end{claim}
+In other words, every class has the form $f(s,\mathbf{w})\cdot [\Oc_V]$ for some $f(s,\mathbf{w})\in K_H(\pt)$. Hence
+$$
+K_{GL_n}(\bP^{n-1}) = \frac{\bC[s^{\pm1};w_1^{\pm1},\ldots, w_{n}^{\pm1}]^{S_n}}{\langle\prod_{i=1}^{n}(1-s^{-1}w_i)\rangle},
+$$
+while
+$$
+K_B(\bP^{n-1})\simeq K_T(\bP^{n-1}) = \frac{\bC[s^{\pm1};w_1^{\pm1},\ldots, w_{n}^{\pm1}]}{\langle\prod_{i=1}^{n}(1-s^{-1}w_i)\rangle}.
+$$
+Since $\Oc_V$ is the monoidal unit in $\Coh(V)$, this is an isomorphism of rings, not just $K_H(\pt)$-modules.
+
+
+Claim~\ref{claim:thom} is a special case of the \emph{Thom isomorphism}, a kind of `homotopy-invariance' statement relating $K_G(E)$ to $K_G(X)$ for a $G$-equivariant vector bundle $\pi:E\rightarrow X$ over $X$. The flat pullback map $\pi^*:K_G(X)\rightarrow K_G(E)$ is injective, since if $i:X\rightarrow E$ is the zero-section inclusion we have $\mathrm{id}=(\pi\circ i)^*= i^*\circ\pi^*$.
+\begin{theorem}
+\label{thm:thom-iso}
+If $E$ is a $G$-equivariant vector bundle on $X$, the map $\pi^*\colon K_G(X)\rightarrow K_G(E)$ is surjective, and hence an isomorphism with inverse $i^*$.
+\end{theorem}
+In other words, in $K$-theory we have the `wrong-way' composite $\pi^*\circ i^*=\mathrm{id}$.
+In fact, all that is needed is that $E$ is an affine bundle (i.e. without a canonical zero-section), but you have to work slightly harder for the injectivity -- see Chriss-Ginzberg Theorem 5.4.17.
+
+We can also use the Koszul resolution 
+$$
+\cdots \rightarrow\pi^*(\Lambda^2 E^*)\rightarrow \pi^*(E^*)\rightarrow \Oc_E
+$$
+of $\Oc_X$ by vector bundles on $E$ to compute the restriction to the zero section map $i^*:K_G(E)\rightarrow K_G(X)$, which is given by the alternating sum of cohomology sheaves of the complex 
+$$
+\cdots \rightarrow\pi^*(\Lambda^2 E^*)\otimes \Fc\rightarrow \pi^*(E^*)\otimes \Fc\rightarrow \Fc,
+$$
+each of which is supported on the zero section $X$. In the special case $\mathcal{F}=i_*\mathcal{G}$ is the pushforward of a sheaf on $X$, the $k$-th term of the complex above is 
+$$
+i_*(\Lambda^kE^*\otimes \mathcal{G})
+$$
+Since $i_*$ is exact, and a complex and its cohomology have the same Euler characteristic, we get
+\begin{align}
+\label{eq:ipushpull}
+i^*i_*[\mathcal{G}] =  \lambda(E^*)\otimes[\mathcal{G}], \quad \lambda(V):= \sum_{k=0}^r(-1)^{k}[\Lambda^kV].
+\end{align}
+
+\subsection{Decomposition of the diagonal}
+
+
+\begin{lemma}
+\label{lem:diag-res}
+Suppose that $X$ is a smooth, proper $G$-variety for which the diagonal $[\mathcal{O}_\Delta]\in K_G(X\times X)$ is in the image of the external tensor product map $K_G(X)\otimes_{R(G)}K_G(X)\rightarrow K_G(X\times X)$. Then for any $G$-variety $Y$ the map 
+\begin{align}
+\label{eq:mult-map}
+\mu\colon K_G(X)\otimes_{R(G)}K_G(Y)\rightarrow K_G(X\times Y), \quad (\Ec,\Fc)\mapsto \Ec\boxtimes\Fc
+\end{align}
+is an isomorphism.
+\end{lemma}
+\begin{proof}
+The key idea is to look at the `matrix-vector product' map
+$$
+K_G(Y\times X)\otimes K_G(X)\rightarrow K_G(Y), \quad \mathcal{K}\otimes \Ec \mapsto (p_Y)_*(\mathcal{K}\otimes p_X^*\Ec)=:\mathcal{K}\star\Ec
+$$
+%which is well-defined since $p_X$ is flat and $p_Y$ is proper (since $X$ is by assumption). In particular, when $X=Y$ and $\mathcal{K}=\Oc_\Delta$, we have $\Oc_\Delta\star \Ec=\Ec$. Maybe it's worth spelling out why:  the convolution with $\Oc_\Delta$ map is
+%$$
+%\Ec\mapsto \Oc_\Delta\star \Ec:=(p_1)_*\left(p_2^*[\Ec]\cdot [\Oc_{\Delta}]\right)
+%$$
+%By the push-pull~\eqref{eq:pushpull-closed} applied to the diagonal inclusion $i:X\rightarrow X\times X$ we have 
+%$$
+%(p_2^*[\Ec])\cdot[\Oc_\Delta] = i_*((i^*\circ p_2^*)[\Ec]\otimes\Oc_X)=i_*((i^*\circ p_2^*)[\Ec])
+%$$
+%since $\Oc_X$ is the monoidal unit in $\Coh(X)$. But since the projection $p_2$ is flat, we have $Li^*\circ Lp_{2}^* = L(p_2\circ i)^* = \mathrm{id}$ since $p_2\circ i = \mathrm{id}_X$. By the same token, since $i_*$ is exact ($i$ being a closed embedding) we have $R(p_1)_*\circ Ri_*=\mathrm{id}$ and hence indeed $\Oc_\Delta\star \Ec=\Ec$.
+%
+%%\begin{remark}
+%%\label{rmk:fiber-conv}
+%%More generally, we can use a similar trick to convolve with the structure sheaf of a class of the form $X\times_Y X$
+%%\end{remark}
+%Now consider the triple product $Y\times X\times X$. By flat base change for the cartesian square
+%$$
+%\begin{tikzcd}
+%Y\times X \arrow{r}{p_2} \arrow[swap]{d}{j}& X \arrow{d}{i} \\
+%Y\times X\times X \arrow[swap]{r}{p_{23}} & X\times X
+%\end{tikzcd}
+%$$
+%we have $p_{23}^*\Oc_\Delta = j_*\Oc_{Y\times X}$ where $j:Y\times X\rightarrow Y\times X\times X$ is the diagonal inclusion.
+%So by the same reasoning as above with $j$ in place of $i$, for any $\mathcal{K} \in K_G(Y\times X)$ we have
+%$$
+%(p_{13})_*\left(p_{12}^*\mathcal{K}\cdot p_{23}^*\Oc_\Delta\right)=\mathcal{K}.
+%$$
+
+%We have a similar `matrix multiplication' map
+%$$
+%K_G(X\times Y)\otimes K_G(X\times Y)\rightarrow K_G(X\times Y), \quad \mathcal{K}\otimes \mathcal{M} \mapsto (p_Y)_*(\mathcal{K}\otimes \mathcal{M})=:\mathcal{K}*\mathcal{M}.
+%$$
+
+ Now suppose that the diagonal is indeed in the image of the external tensor product map, so that 
+$$
+[\Oc_\Delta] = \sum_i \alpha_i\boxtimes \beta_i := \sum_i (p_1^*\alpha_i)\otimes (p_2^*\beta_i),\quad \alpha_i,\beta_i\in K_G(X).
+$$
+Then for any $\mathcal{K}\in K_G(Y\times X)$ we have
+\begin{align*}
+\mathcal{K} &= (p_{13})_*\left(p_{12}^*\mathcal{K} \cdot p_{23}^*\Oc_\Delta\right)\\
+&=\sum_i (p_{13})_*\left(p_{12}^*\mathcal{K}\otimes p_{2}^*\alpha_i\otimes p_{3}^*\beta_i\right)\\
+&=\sum_i (p_{13})_*\left(p_{12}^*\mathcal{K}\otimes p_{2}^*\alpha_i\otimes p_{13}^*p_2^*\beta_i\right)\\
+&=\sum_i \left\{(p_{13})_*(p_{12}^*\mathcal{K}\otimes p_{12}^*p_{2}^*\alpha_i)\right\}\otimes p_2^*\beta_i\\
+&=\sum_i \left\{(p_{13})_*(p_{12}^*(\mathcal{K}\otimes p_{2}^*\alpha_i)\right\}\otimes p_2^*\beta_i\\
+&=\sum_i p_1^*\left\{(p_1)_*(\mathcal{K}\otimes p_{2}^*\alpha_i)\right\}\otimes p_2^*\beta_i
+\end{align*}
+where we used the ability to factor $p_3 = p_2\circ p_{13}, ~p_2 = p_2\circ p_{12}$, then  the projection formula, then the monoidality of pullback, then base change for
+$$
+\begin{tikzcd}
+Y\times X\times X \arrow{r}{p_{12}} \arrow[swap]{d}{p_{13}}& Y\times X \arrow{d}{p_1} \\
+Y\times X \arrow[swap]{r}{p_{1}} & Y
+\end{tikzcd}
+$$
+to write $(p_{13})_*p_{12}^* =p_1^*(p_1)_*$. The end result is that we expressed the class of $\mathcal{K}$ in terms of products of classes pulled back from $Y$ and $X$, i.e. in the image of~\eqref{eq:mult-map}. The proof of the injectivity is outlined in the exercises below.
+\end{proof}
+%When $Y=\pt$, the calculation above shows that if smooth proper $X$ has a resolution of the diagonal $[\Oc_\Delta]=\sum_i\alpha_i\boxtimes \beta_i$ then 
+
+\begin{exercise}
+\label{eq:conv-formula}
+Show that the convolution
+$$
+K_G(X\times Y)\otimes_{K_G(\pt)} K_G(Y\times Z)\rightarrow K_G(X\times Z)
+$$
+satisfies
+$$
+(\mathcal{F}\boxtimes\mathcal{G})\star(\mathcal{G}'\boxtimes\mathcal{E}) = \langle \mathcal{G},\mathcal{G}'\rangle_Y \mathcal{F}\boxtimes \mathcal{E}.
+$$
+\end{exercise}
+
+\begin{exercise}
+If $X$ satisfies the hypotheses of Lemma~\ref{lem:diag-res} and $[\Oc_\Delta]=\sum_i\alpha_i\boxtimes\beta_i\in K_G(X\times X)$, show that for any class $\gamma\in K_G(X)$ we have
+$$
+\gamma = \sum_i \langle \gamma,\beta_i\rangle_X \alpha_i,
+$$
+where 
+$$
+\langle \gamma,\delta\rangle_X = \chi_G(\gamma\cdot\delta) := f_*(\gamma\otimes\delta)\in K_G(\pt),\quad f:X\rightarrow \pt.
+$$
+\end{exercise}
+In particular, the classes $\{\alpha_i\}$ (or equivalently $\{\beta_i\}$) span $K_G(X)$ as a $K_G(Y)=K_G(\pt)$-module, and thus $K_G(X)$ is finitely generated over $K_G(\pt)$. This shows not every variety can admit a decomposition of the diagonal (e.g. a curve of $g>0$ where $\Pic(X)$ is not finitely generated.)
+
+\begin{exercise}
+With the same notations/hypotheses of the previous exercise, show that $K_G(X)$ is a finitely generated projective $K_G(\pt)$-module and that the $K_G(\pt)$-bilinear pairing $\langle\cdot,\cdot\rangle_X$ is perfect.
+\end{exercise}
+
+{
+\begin{exercise}
+Consider the map
+$$
+\rho\colon K_G(Y\times X)\rightarrow \Hom_{K_G(\pt)-mod}(K_G(X),K_G(Y))
+$$
+defined by convolution. Use Exercise~\ref{eq:conv-formula} to show that $\rho\circ\pi=\mathrm{id}$, and hence $\pi$ is injective. Since we already proved $\pi$ is surjective, we get that $\rho,\pi$ are inverse isomorphisms.
+\end{exercise}
+}
+
+\begin{exercise}
+\label{ex:alg-crit}
+Suppose that $K_G(X)$ is a free $K_G(\pt)$-module of rank $r$, $K_G(X\times X)$ is a free $K_G(\pt)$-module of rank $r^2$, and the pairing $\langle\cdot,\cdot\rangle_X$ is perfect. Using $\rho\circ\pi=\mathrm{id}$ and rank-counting, deduce that 
+$$
+\pi\colon K_G(X)\otimes K_G(X)\rightarrow K_G(X\times X)
+$$ myst be an isomorphism and therefore $X$ admits a decomposition of the diagonal.
+\end{exercise}
+
+
+
+As mentioned in the exercises above, not all varieties admit a decomposition of the diagonal.  A class of projective varieties for which such a decomposition \emph{does} exist is given by the partial flag manifolds $G/P$ where $P$ is a parabolic in $G$. There is a nice explicit construction in the case $G/P=\Gr(k,n)$ is a maximal parabolic in $GL(n)$. We have two tautological vector bundles on $\Gr(k,n)$: the rank $k$ bundle $\mathcal{V}$ whose fiber over a $k$-dimensional subspace $V$ is $V\subset \mathbb{C}^n$, and the rank $(n-k)$ bundle $\mathcal{W}$ whose fiber is $\mathbb{C}^n/V$. On $\Gr\times \Gr$ we consider the external tensor product $\mathcal{V}^\vee\boxtimes\mathcal{W}$, which has a section
+$$
+s: V_1\rightarrow \mathbb{C}^n\rightarrow \mathbb{C}^n/V_2
+$$
+which vanishes if and only if $V_1=V_2$ as subspaces in $\mathbb{C}^n$, and gives a regular section cutting out the diagonal $\Delta\subset \Gr\times\Gr$. Hence the corresponding Koszul resolution
+$$
+\bigwedge^\bullet\left(\mathcal{V}\boxtimes\mathcal{W}^\vee\right)\rightarrow\mathcal{O}_\Delta
+$$
+gives a resolution of the diagonal by sheaves in the image of the external tensor product map. We can prove the Thom isomorphism theorem by doing this for projective space $\bP^n=\Gr(k,n+1)$, where $\mathcal{V}=\mathcal{O}(-1)$ and $\mathcal{W}=\mathcal{T}_{\bP^n}(-1)$ is the tangent sheaf (if over an affine open $U_i$ we choose the generator $v\in\mathbb{C}^n$ so that $v_i=1$, then $u+ \langle v\rangle \in \mathbb{C}^n /\langle v\rangle$ corresponds to the tangent vector $\langle v+\epsilon u\rangle\subset\mathbb{C}^n$ ). Hence the Koszul complex gives Beilinson's resolution
+$$
+\bigoplus_{i=0}^n \mathcal{O}(i)\boxtimes\Omega_{\bP^n}^i(i)\rightarrow \mathcal{O}_{\Delta},
+$$
+and we get that $K_G(\bP^n)$ is spanned as a $K_G(\pt)$-module by the classes of the line bundles $\{\Oc(i)\}$ or alternatively by the vector bundles $\{\Omega_{\bP^n}^i(i)\}$.
+\begin{exercise}
+\label{ex:gram}
+Use the pairing $\langle\cdot,\cdot\rangle_{\bP^{n-1}}$ and the fundamental theorem of symmetric functions to show that the classes $[\Oc(i)]_{i=0}^n$ are linearly independent over $K_G(\pt)$, and hence show that $K_{GL_{n}}(\bP^{n-1})$ is a free $K_G(\pt)$-module of rank $n$.
+\end{exercise}
+
+
+
+
+If $V$ is a representation of $G$ (i.e. a $G$-equivariant vector bundle on a point), we can use this to calculate $K_G(V)$ as follows. Coming back to the Thom isomorphism, embed $V$ into $\widetilde{V} = V\oplus \mathbb{C}$ with $G$ acting only on the first factor, and consider the projective space $\mathbb{P}(\widetilde{V})$. Then have a closed embedding $\mathbb{P}(V)\rightarrow\bP(\widetilde{V})$ whose complement $j:U\rightarrow \bP(\widetilde{V})$ (the locus where the coordinate on the $\mathbb{C}$ factor is nonzero) is an affine open isomorphic to the original $G$-vector space $V$. So the exact sequence
+$$
+K_G(\bP(V))\rightarrow K_G(\bP(\widetilde V))\rightarrow K_G(V)\rightarrow 0.
+$$
+becomes
+$$
+\bigoplus_{i=0}^n K_G(\pt)\cdot [\mathcal{O}_{\bP(V)}(i)] \rightarrow \bigoplus_{i=0}^{n+1} K_G(\pt)\cdot [\mathcal{O}_{\bP(\widetilde V)}(i)]\rightarrow K_G(V)\rightarrow 0.
+$$
+and we conclude $K_G(V)$ is spanned by $j^*[\mathcal{O}_{\bP(\widetilde V)}(0)]=[\mathcal{O}_V]=\pi^*(\Oc_\pt)$. 
+
+Given a rank $n$ vector bundle $\mathcal{V}\rightarrow X$, we can do a relative version of the construction above, resolving the diagonal in the projective bundle $\bP(\mathcal{V})$ given by projectivizing the fibers of $\mathcal{V}$. This yields the \emph{projective bundle theorem}, which says that
+\begin{align}
+\label{eq:projective-bundle}
+K_G(\bP(\mathcal{V}))\simeq \bigoplus_{i=0}^{n-1}K_G(X)[\Oc(i)]
+\end{align}
+
+With this in hand.the same projective completion trick above works to prove the surjectivity part of Theorem~\ref{thm:thom-iso}.
+
+
+\blue{Nonlinear version.}
+
+\section{Cell decompositions and K\"unneth-type formulas}
+Recap: we now know that the K\"unneth property holds for $K_G(G/P)$ (or more generally smooth proper $X$) if and only if $G/P$  has a $G$-equivariant resolution of the diagonal, and formulated a pure algebraic criterion for the existence of such a resolution. 
+
+Here is another equivalent formulation of the Kunneth property for $G/P$: we can read
+$$
+K_G(G/P)\otimes_{K_G(\pt)}K_G(Y)\simeq K_G(G/P\times Y)
+$$
+alternatively as a `base change' isomorphism
+$$
+K_P(\pt)\otimes_{K_G(\pt)}K_G(Y)\simeq K_P(Y).
+$$
+describing what happens when we forget equivariance down to the subgroup $P$.
+
+%Use Theorem 5.6.1 in CG to show Kunneth for $G/B$ by reducing down to $B$ in steps and proving (a) at each stage. Only need decomposition of the diagonal 
+
+
+Let's return back to the discussion of $K_T(\bP^n)$. By resolving the diagonal, we proved that it is a free module of rank $n$ over $K_T(\pt)$ spanned by the classes $\{[\Oc(i)]\}_{i=0}^n$. Here is another way to see this. Recall the cell decomposition of projective space obtained by iteratively writing
+$$
+\mathbb{P}^{n} = \mathbb{P}^{n-1}\sqcup \mathbb{A}^n.
+$$
+Since the cells are $T$-stable subvarieties, we get an exact sequence
+$$
+K_T(\mathbb{P}^{n-1})\rightarrow K_T(\mathbb{P}^{n})\rightarrow K_T(\mathbb{A}^{n})\rightarrow 0.
+$$
+By the Thom isomorphism, $ K_T(\mathbb{A}^{n})\simeq K_T(\pt)$ is a free module of rank 1, and so the right map has a (non-canonical) section. So if we knew the left map was injective, we could inductively conclude that the middle term $K_T(\mathbb{P}^{n})$ is a free module of rank $n+1$. One way to see the injectivity here is using push-pull: using the analog of formula~\eqref{eq:ipushpull} for the Koszul resolution
+$$
+\Oc_{\bP^n}(-1)\rightarrow\Oc_{\bP^n}\rightarrow \Oc_{\bP^{n-1}}
+$$
+we get that $i^*i_*(\gamma)=\gamma(1-[\Oc(-1)_{\bP^{n-1}}])$ and since by induction $K_T(\mathbb{P}^{n-1})$ is free (in particular torsion-free) we are done. 
+
+The cell decomposition above is a special case of the \emph{Schubert cell} decomposition of partial flag manifolds, which for the full flag manifold reads
+$$
+G/B = \bigsqcup_{w\in W} BwB/B,
+$$
+where
+$$
+X_w=BwB/B \simeq \mathbb{A}^{l(w)}.
+$$
+The closure of the cell $X_w$ is the \emph{Schubert variety}
+$$
+\overline{X}_w = \bigcup_{v\leq w} X_w.
+$$
+The partial order here is the \emph{strong} Bruhat order: $v\leq w$ iff there's a reduced word for $v$ that is a subword of a reduced word for $w$.
+
+More generally still, as in Chriss-Ginzburg we can consider a \emph{cellular fibration} $\pi:F\rightarrow X$ of $G$-spaces: this means $F$ has a finite filtration by $G$-subvarieties
+$$
+F=F^n\supset F^{n-1}\supset\cdots\supset F^0=\emptyset
+$$
+such that $\pi:F^i\rightarrow X$ is a $G$-equivariant locally trivial fibration, and writing $E_i=F^i\setminus F^{i+1}$ the restriction $\pi:E_i\rightarrow X$ is $G$-equivariant fibration whose fibers are affine spaces. If $X=\pt$, this is the same as a $G$-equivariant cell decomposition of $F$. In this setting we have the following generalization of the calculation above:
+\begin{lemma}[Cellular fibration lemma]
+Suppose that $\pi:F\rightarrow X$ is a cellular fibration, and that $K_G(X)$ is a free $K_G(\pt)$-module with basis $\Fc_1,\ldots, \Fc_r$. For each $i$, there is a short exact sequence
+$$
+0\rightarrow K_G(F^{i-1})\rightarrow K_G(F^{i})\rightarrow K_G(F^{i-1}\setminus F^i)\rightarrow 0
+$$
+which is non-canonically split, and $K^G(F)$ is also a free $K_G(\pt)$-module with basis
+$$
+\left\{(\epsilon_i)_*\overline{\pi}_i^*\mathcal{F}_j\right\}_{1\leq i\leq n}^{1\leq j\leq r},
+$$
+where 
+$$
+\overline\pi_i: \overline{E}_i\rightarrow X,\quad \epsilon_i:\overline{E}_i\hookrightarrow F.
+$$
+\end{lemma}
+The proof uses the fact that the Thom isomorphism $\pi^*$ is an also isomorphism on $K_1$ to show that the connecting map in the long exact sequence is zero, and we get the claimed short exact sequences. The rest is a straightforward induction on the length of the filtration using the argument we did for $\bP^n$.
+
+Applying the cellular fibration lemma to the Schubert decomposition of $G/B$, we get that $K_T(G/B)$ is a free module of rank $|W|$ over $K_T(\pt)$ with the \emph{Schubert basis}
+$$
+\{\Oc_{\overline X_w}\}_{w\in W}, \quad \overline X_w = \overline{BwB/B}.
+$$
+And since by Chevelley's theorem $K_T(\pt)$ is a free module of rank $|W|$ over $K_G(\pt)$, we see that the rank conditions from Exercise~\ref{ex:alg-crit} hold for $X=G/B$. As for the pairing $\langle \cdot,\cdot\rangle_{G/B}$ note that under the isomorphism with $K_T(\pt)$ it is given by inducing characters of $T$ to $G$-equivariant line bundles on $G/B$, tensoring, and then taking derived global sections. By the Borel-Weil-Bott theorem gives a sign multiple of the character of an irrep of $G$. So in principle the Kunneth property for the $G/B$ can be established by doing some pure algebraic calculations with characters of representations, similar to those in Exercise~\ref{ex:gram}.
+
+In fact, we can always reduce to doing these calculations (or using some other method, like Beilinson's explicit resolution of the diagonal in type-A) for \emph{maximal} parabolics. The point is that \red{if $G$ is simply-connected} then by the Levi decomposition, we can always find a chain of subgroups
+$$
+G\supset G_1\supset G_2\supset\cdots\supset B
+$$
+so that $G_i/G_{i+1}$ is either projective, affine space, or $\mathbb{C}^*$. You do this by starting from the reductive $G$, then taking $G_1$ a maximal parabolic, then taking $G_2$ the Levi of $G_1$, etc. In the affine space case, the Thom isomorphism tells us
+$$
+K_{G_i}(G_i/G_{i+1}\times Y) \simeq K_{G_i}(Y) 
+$$ 
+or equivalently
+$$
+K_{G_i}(\pt)\otimes_{K_{G_{i+1}}(\pt)}K_{G_i}(Y)\simeq K_{G_{i+1}}(Y).
+$$
+As we've already discussed in the first lecture, we have $K_{G_i}(\pt)\simeq K_{G_{i+1}}(\pt)$, so in fact 
+$$
+G_i/G_{i+1}\simeq \mathbb{A}^l \implies K_{G_i}(Y)\simeq K_{G_{i+1}}(Y).
+$$
+In particular, for any $Y$ we have
+$$
+K_B(Y)\simeq K_T(Y).
+$$
+The case $G=\bC^*$ is also easy: there we have to calculate $K_{G_i}(\bC^*\times Y)$.
+We can do it by embedding $\bC^*\times Y$ into $\bC\times Y$ and using the long exact sequence
+$$
+K_{G_i}(0\times Y)\rightarrow K_{G_i}(\bC\times Y)\rightarrow K_{G_i}(\bC^*\times Y)\rightarrow 0.
+$$
+Then if $\chi$ is the character by which $G_i$ acts on the $\bC^*$-factor, using the Koszul resolution and the Thom isomorphism we get
+$$
+ K_{G_i}(\bC^*\times Y)\simeq \frac{K_{G_{i}}(Y)}{\langle 1-\chi\rangle}.
+$$
+Since $K_{G_i}(\pt)=K_{G_i+1}(\pt)/\langle 1-\chi\rangle$ we again recognize this as
+$$
+K_{G_i}(\pt)\otimes_{K_{G_{i+1}}(\pt)}K_{G_i}(Y).
+$$
+%Another nice application of cellular fibrations is to describing what happens when we restrict from $G$ to a closed subgroup $H$. Recall that in this situation we have a natural map 
+%\begin{align}
+%\label{eq:equivariant-restriction}
+%K_H(\pt)\otimes_{K_G(\pt)} K_G(X)\rightarrow K_H(X)
+%\end{align}
+%coming from forgetting $G$-equivariant sheaves down to $H$-equivariant ones.
+%
+%%$$
+%%K_H(\pt)\simeq K_G(G/H),\quad K_H(X)\simeq K_G(G/H\times X).
+%%$$
+%\begin{corollary}
+%Suppose that $(X,F)$ is a cellular fibration and $H$ is a closed subgroup of $G$ and there exist classes $\Fc_1,\ldots,\Fc_r\in K_G(X)$ that form a basis for \emph{both} $K_G(X)$ and $K_H(X)$ as free $K_G(\pt),K_H(\pt)$-modules. Then if~\eqref{eq:equivariant-restriction} is an isomorphism, for each $i$ so is is the corresponding map for $F$:
+%$$
+%K_H(\pt)\otimes_{K_G(\pt)} K_G(F^i)\rightarrow K_H(F^i).
+%$$
+%\end{corollary}
+%The proof is a straightforward by induction on $i$ using the short exact sequences of free modules in the cellular fibration lemma, again using the Thom isomorphism to transfer $K_H(\pt)\otimes_{K_G(\pt)}K_G(X)\simeq K_H(X)$ to an isomorphism $K_H(\pt)\otimes_{K_G(\pt)}K_G(E_i)\simeq K_H(E_i)$.
+
+Continuing this way, we can show that any parabolic $G/P$ has the Kunneth property
+$$
+K_G(G/P)\otimes_{K_G(\pt)}K_G(Y)\simeq K_G(G/P\times Y)
+$$
+for all $G$-varieties $Y$, and hence convolution identifies
+\begin{align*}
+K_G(G/P\times G/P)&\simeq \mathrm{End}_{K_G(\pt)}(K_G(G/P))\\
+&\simeq K_P(\pt)\otimes_{K_G(\pt)}K_P(\pt).
+\end{align*}
+
+Moreover, we get that
+$$
+K_T(Y)\simeq K_G(Y)\otimes_{K_G(\pt)}K_T(\pt)=K_G(Y)\otimes_{\bZ[\Lambda]^W}\bZ[\Lambda]
+$$
+and hence we can recover $K_G(Y)$ from $K_T(Y)$ by taking $W$-invariants:
+$$
+K_G(Y)\simeq K_T(Y)^W.
+$$
+\section{Convolution algebras and Demazure operators}
+In the last lecture we saw that the flag manifold has a decomposition into Schubert cells $\{X_w\}_{w\in W}$ given by the $B$-orbits on $G/B$.  Now consider the $G$-variety $G/B\times G/B$. Recall that we can identify it as the $G$-space obtained from induction of the $B$-space $G/B$:
+$$
+G\times^BG/B \simeq G/B\times G/B, \quad (g,hB)\mapsto (gB,ghB).
+$$
+So the $G$-orbits on $(G/B)^2$ are inductions of the $B$-orbits on $G/B$, i.e. of the Schubert cells:
+$$
+O_w = G\times^B X_w = G\times^B BwB/B
+$$
+and therefore $O_w$ is a $G$-equivariant affine bundle over $G/B$ of rank $l(w)$. So by the cellular fibration lemma, $K_G(G/B\times G/B)$ is a free module over $K_G(\pt)$ with a basis indexed by pairs of Weyl group elements $(v,w)\in W\times W$.
+
+Now we are ready to properly tackle the convolution algebra $K_G(G/B\times G/B)$. In general the orbit closures $\overline{O}_w$ are complicated and singular, but the ones corresponding to simple reflections are smooth and easy to describe:
+\begin{lemma}
+If $P_i$ is the parabolic obtained by adding negative simple root $-\alpha_i$ to $\mathfrak{b}$, $\overline{O}_{s_i}$, then we have
+$$
+\overline{O}_{s_i}\simeq G/B\times_{G/P_i} G/B.
+$$
+\end{lemma}
+It's maybe most helpful to see how this works in type $A_{n-1}$, where $G/B$ is the variety of full flags $V_1\subset V_2\subset\cdots\subset V_n=\bC^n$, and the projection to the partial flag variety $G/P_i$ is the one forgetting the subspace $V_i$. Then $\overline{O}_{s_i}$ is the variety of pairs of flags $V_\bullet,W_\bullet$ such that $V_j=W_j$ for all $i\neq j$. 
+
+We calculate how convolution with $\mathcal{O}_{G/B\times_{G/P_i} G/B}$ acts on $K_G(G/B)$ using the usual push-pull tricks: writing $i:G/B\times_{G/P_i} G/B\hookrightarrow G/B\times G/B$ for the inclusion, we have
+\begin{align*}
+[\Oc_{G/B\times_{G/P_i} G/B}]\star \gamma &=(p_1)_*\left([\Oc_{G/B\times_{G/P_i} G/B}]\cdot p_2^*\gamma\right)\\
+&=(p_1)_*\left(i_*i^*p_2^*\gamma\right)\\
+&=(p_1\circ i)_*(p_2\circ i)^*(\gamma).
+\end{align*}
+But by flat base change for the Cartesian square
+$$
+\begin{tikzcd}
+G/B\times_{G/P_i}G/B \arrow{r}{p_1\circ i} \arrow[swap]{d}{p_2\circ i}& G/B \arrow{d}{\pi} \\
+G/B \arrow[swap]{r}{\pi} & G/P_i
+\end{tikzcd}
+$$
+we get
+$$
+[\Oc_{G/B\times_{G/P_i} G/B}]\star \gamma = \pi^*\pi_*(\gamma).
+$$
+By the projection formula, $\pi^*\pi_*:K_G(G/B)\rightarrow K_G(G/B)$ is linear over $K_G(G/P_i)$.
+On the other hand, since the map $\pi:G/B\rightarrow G/P_i$ is a $\bP^1$-bundle,
+by the projective bundle theorem $K_G(G/B)$ is a free module of rank 2 over $K_G(G/P_i)$, and as a basis we can take the classes $\Oc,\Oc(-1)$, for which we have 
+\begin{align}
+\label{eq:pi-pushforwards}
+R\pi_*\Oc_{G/B}=\Oc_{G/P_i},~R\pi_*\Oc(-1)=0.
+\end{align}
+This tells us that $\pi^*\pi_*$ is the projection onto the first factor in the direct sum decomposition
+$$
+K_G(G/B)= K_G(G/P_i)\cdot [\Oc]\oplus K_G(G/P_i)\cdot [\Oc(-1)].
+$$
+
+%In terms of the equivalences
+%$$
+%K_G(G/B)\simeq K_T(\pt), K_G(G/P)\simeq K_L(\pt)
+%$$
+%the meaning of the Demazure operator is as follows: given a $G$-equivariant line bundle $\mathcal{L}_\lambda$ on $G/B$, 
+
+
+
+We can make this all more explicit if we identify these groups with various kinds of functions on the weight lattice: we have
+$$
+K_G(G/B)=\bZ[\Lambda], \quad K_{G}(G/P_i)=\bZ[\Lambda]^{\langle s_i\rangle},
+$$
+and under this identification we have $[\Oc(-1)]=x_{\omega_i}^{-1}$. Then it's easy to check the following operators do the job:
+\begin{lemma}
+The convolution action of $[\Oc_{G/B\times_{G/P_i} G/B}]$ on $f\in \bZ[\Lambda]=K_G(G/B)$ is given by the \emph{Demazure operator}
+$$
+[\Oc_{G/B\times_{G/P_i} G/B}]\star f=L_i(f),\quad L_i(f) = \frac{f - x_{\alpha_i}^{-1}s_i\cdot f}{1-x_{\alpha_i}^{-1}}.
+$$
+\end{lemma}
+Note that by projection formula and~\eqref{eq:pi-pushforwards} we have $\pi_*\pi^*[f]=[f][\pi_*\Oc]=[f]$, and so $L_i^2=L_i$.
+
+As we have seen above, if we set $Z(s_i)=G/B\times_{G/P_i} G/B$ and write $q_{i,1},q_{i_2}$ for the two projections then by base change 
+we can re-express the Demazure operators as
+\begin{align}
+\label{eq:roof-demazure}
+L_i = (q_{i,1})_*q_{i,2}^*.
+\end{align}
+This is quite convenient for working out the relations between the Demazure operators since it gives a way to compose them.  Given a sequence of simple roots $\underline{\alpha}=(\alpha_{i_1},\ldots, \alpha_{i_l})$, define the \emph{big Bott-Samelson variety}
+$$
+Z(\underline{\alpha})= G/B\times_{G/P_{i_1}}G/B\times_{G/P_{i_2}}\cdots\times_{G/P_{i_d}}G/B.
+$$
+In type $A$ you can think of the Bott-Samelson varieties as parametrizing `movies' of full flags, with `frames' indexed by the ordered set $\underline\alpha=(\alpha_{i_k})$. The movies in $Z(\underline\alpha)$ are those such that during frame $k$, the flag gets modified by changing the only the subspace $V_{i_k}$ while holding all others fixed. 
+Write $q_0,\ldots, q_d:Z(\underline\alpha)\rightarrow G/B$ for the projections to the  $G/B$ factors in the fiber product $Z(\underline\alpha)$. Using formula~\eqref{eq:roof-demazure} and flat base change we get that
+$$
+L_{i_1}\circ\cdots\circ L_{i_d} = (q_0)_*q_d^*.
+$$
+
+
+
+\begin{lemma}
+We have 
+$$
+(BwB)(Bs_iB)= \begin{cases}
+Bws_iB, \quad &l(ws_i)=l(w)+1\\
+BwB\sqcup Bws_iB, \quad &l(ws_i)=l(w)-1
+\end{cases}
+$$
+\end{lemma}
+\begin{exercise}
+Suppose that $xB\rightarrow^{ws_i}zB$ are two flags in relative position $ws_i$ and $l(w)<l(ws_i)$. Then there exists a unique flag $yB$ such that
+$$
+xB\rightarrow^w yB\rightarrow^{s_i} zB.
+$$
+\end{exercise}
+
+\begin{theorem}
+If $\underline \alpha$ corresponds to a reduced word for $w$, then 
+$$
+q_0\times q_d :Z(\underline\alpha)\rightarrow \overline{O}_w 
+$$
+is a resolution of singularities, and $R(q_0\times q_d)_*\Oc=\Oc$.
+\end{theorem}
+It follows from the theorem that if $p_i:\overline{O}_w \rightarrow G/B$ are the two projections we have $q_*q^*=p_*p^*$ and we conclude that the composite $L_{i_1}\circ\cdots\circ L_{i_d}$ is independent of the reduced word for $w$. In particular, the Demazure operators satisfy the Coxeter braid relations. And since by the cellular fibration lemma the classes of the $\overline{O}_w$ span $K_G(G/B\times G/B)$ over $K_G(\pt)$, we see that the Demazure operators for simple reflections generate.
+
+\subsection{Alternative model for the convolution}
+Recall from exercise~\ref{ex:small-model} that we can regard the $G$-space $G/B \times G/B$ as being the induction $G\times^B G/B$ of $G/B$ along $B\hookrightarrow G$. This way we get an isomorphism
+\begin{align}
+\label{eq:ires}
+i^* \colon K_G(G/B\times G/B)\simeq K_B(G/B), \quad i(gB) = (eB,gB).
+\end{align}
+Recall that the inverse equivalence is given by pulling back along the $G$-torsor $\pi_2:G\times G/B\rightarrow G/B$ to get a $G\times B$-equivariant sheaf on $G\times G/B$ and then descending along the $B$-torsor 
+$$
+q:G\times G/B\rightarrow  G\times^B B .
+$$
+In other words, this map sends $\Fc\in K_B(G/B) $ to a sheaf $\widetilde\Fc$ on $G\times^B B$ characterized by the property that 
+$$
+q^*\widetilde{\Fc} \simeq \pi_2^*\Fc.
+$$
+We have
+$$
+\pi_2^*i^*\Gc
+$$
+We can re-express the convolution operation directly at the level of $B$-equivariant sheaves on $G/B$ as follows.  Consider the diagram
+\begin{equation}
+\label{eq:convolution-b}
+\begin{tikzcd}
+G/B\times G/B &   G\times G/B \arrow{l}[swap]{p_1\times p_2}\arrow{r}{q} &  G\times^B G/B \arrow{r}{m} & G/B,
+\end{tikzcd}
+\end{equation}
+where $q$ is the $B$-torsor defined above and the other maps are
+$$
+p_1(g_1,g_2B)= g_1B, \quad p_2(g_1,g_2B)= g_2B, \quad m([g_1,g_2B]B) = g_1g_2B.
+$$
+We let $B\times B$ act on the space $G\times G/B$ via
+\begin{align}
+\label{eq:bb-action}
+(g,h)\cdot (g_1,g_2B) = (gg_1h^{-1},hg_2B).
+\end{align}
+Now the key point is that if $\Fc$ is a $B$-equivariant sheaf on $G/B$, then the sheaves $p_1^*\Fc,p_2^*\Fc$ on $G\times G/B$  both acquire a $B\times B$-equivariant structure with respect to the action~\eqref{eq:bb-action}. For $p_2$, note that $p_2:G\times G/B\rightarrow G/B$ is a $B$-equivariant map with respect to the second copy of $B$ in~\eqref{eq:bb-action}, and is also a $G$-torsor via the commuting `left multiplication of left factor' action on $G\times G/B$. Hence $p_2^*\Fc$ gets a $G\times B$, and in particular $B\times B$-equivariant structure. For $p_1$, we factor as follows:
+$$
+K_{\blue{B}}(G/\red{B})\simeq K_{\blue{B}\times \red{B}}(G)\xrightarrow{\quad p_1^*\quad } K_{G\times \blue{B}\times \red{B}}(G\times G)\simeq K_{G\times \blue{B}}(G\times G/B)
+$$
+where the blue $B$-action on $G\times G$ is $\blue{b}\cdot (g_1,g_2) = (g_1\blue{b}^{-1},\blue{b}g_2)$, with respect to which $p_1$ is equivariant. Hence we again get a $B\times B$-equivariant structure on $p_1^*\Fc$. In particular, by equivariant descent there is a unique $B$-equivariant sheaf $\Ec\widetilde\boxtimes\Fc$ on $G\times^B B$ such that
+$$
+q^*(\Ec\widetilde\boxtimes\Fc) \simeq p_1^*\Ec\otimes p_2^*\Fc.
+$$
+
+Since the map $m$ is proper (being a trivial $G/B$-bundle) we can define a convolution of $B$-equivariant sheaves on $G/B$ by
+$$
+\Ec*\Fc := m_*\left((q^*)^{-1}(p_1^*\Ec\otimes p_2^*\Fc)\right) = m_*\left(\Ec\widetilde\boxtimes\Fc\right).
+$$
+
+\begin{lemma}
+The two convolutions are identified by the isomorphism $i^*$.
+\end{lemma}
+
+\begin{proof}
+If $\Gc_1,\Gc_2$ are $G$-equivariant sheaves on $G/B\times G/B$, we have to calculate  
+$$
+(i^*\Gc_1)*(i^*\Gc_2)=m_*\left((q^*)^{-1}\left(p_1^*i^*\Gc_1 \otimes p_2^*i^*\Gc_2\right)\right)
+$$
+and compare it against
+$$
+i^*\left(\Gc_1\star\Gc_2\right) = i^*\left( (p_{13})_*(p_{12}^*\Gc_1\otimes p_{23}^*\Gc_2\right).
+$$
+Consider the Cartesian square of $B$-spaces
+$$
+\begin{tikzcd}
+ G \times^B G/B\arrow{r}{\tilde i} \arrow{d}{m}& G/B\times G/B\times G/B\arrow{d}{p_{13}}\\
+G/B \arrow{r}{i}&  G/B\times G/B
+\end{tikzcd}
+$$
+where $\tilde i([g,hB]) = (eB, gB, ghB).$
+{Since the $G$-equivariant sheaves on $(G/ B)^2$ are $i$-flat, }
+we can do base change to get
+$$
+i^* (p_{13})_*\left(p_{12}^*\Gc_1\otimes p_{23}^*\Gc_2\right)= m_*\tilde i^*\left(p_{12}^*\Gc_1\otimes p_{23}^*\Gc_2\right)
+$$
+So if we can show that 
+\begin{align}
+\label{eq:i-monoidal}
+i^*\Gc_1\widetilde{\boxtimes}i^*\Gc_2 \simeq \tilde i^*\left(p_{12}^*\Gc_1\otimes p_{23}^*\Gc_2\right),
+\end{align}
+we will be done. Since $p_{12}\circ \tilde i\circ q=i\circ p_1$, we certainly have
+$$
+q^*\tilde i^*p_{12}^*\Gc_1 \simeq p_{1}^*i^*\Gc_1.
+$$ On the other hand, if we compute $(p_{23}\circ \tilde i\circ q)(g,hB)$ we get $(gB,ghB)$ rather than $(eB,hB)=p_2\circ i$. To fix this we use the $G$-equivariance: if $\Delta:G\rightarrow G\times G$ is the diagonal and $a: G\times (G/B)^3$ is the action map, then we can factor
+$$
+i_1p_1=p_{23}\circ a^{-1}\circ (\mathrm{id}\times \tilde i)\circ (\mathrm{id}\times q)\circ \Delta.
+$$
+Because $\Gc_2$ and hence $p_{23}^*\Gc_2$ are $G$-equivariant, we have $a^*p_{23}^*\Gc\simeq p_G^*p_{23}^*\Gc$. Since
+$$
+p_{23}\circ p_G \circ (\mathrm{id}\times \tilde i)\circ (\mathrm{id}\times q)\circ \Delta = p_{23}\circ \tilde i\circ q,
+$$
+we get an isomorphism
+$$
+p_2^*i^*\Gc_2 \simeq q^*\tilde i^*p_{23}^*\Gc_2.
+$$
+The conclusion is that~\eqref{eq:i-monoidal} indeed holds,
+and the proof is finished.
+\end{proof}
+My reason for writing out so many details in the proof above is that the convolution diagram~\eqref{eq:convolution-b} looks a bit strange at first glance, and maybe it's not so easy to feel in your bones why it is the same as the natural-looking `matrix-multplication' one~\eqref{eq:convolution-mm}. Actually, the diagram~\eqref{eq:convolution-b} is closer to the kind of convolution you would see in a Fourier analysis or group theory class: if we think about $K_B(G/B) = K(B\backslash G/B)$ as the category of coherent sheaves on the stack $B\backslash G/B$, then under the `sheaf-functions' dictionary we can analogize it to a space of bi-invariant functions $\Fun(B\backslash G/B)$ of some kind. Then the standard convolution is 
+$$
+(\phi*\psi)(g)=\int_G \phi(gh^{-1})\psi(h)dh = \int_{\{h_1h_2=g\}\subset G\times G} \phi(h_1)\psi(h_2)dh_1dh_2.
+$$
+The result is clearly left $B$-invariant by left invariance of $\phi$, and is also right $B$-invariant by changing variables in the integral and using right invariance of $\psi$. The formula above can be interpreted as ``pull back $\phi,\psi$ to get a function on $G\times G$, then pushforward (i.e. integrate over the fibers of) the multiplication map $m:G\times G$.''
+This may be a helpful way to think about the extra $B\times B$-equivariance acquired  by the sheaves $p_i^*\Ec$, and also about where the diagram~\eqref{eq:convolution-b} comes from. Indeed, in analogy with the convolution of functions above, replace $K_B(G/B)\simeq K_{B\times B}(G)$, one's first thought might be try to write down
+$$
+K_{B\times B}(G)\otimes K_{B\times B}(G) \xrightarrow{p_1^*\otimes p_2^*} K_{B^3}(G\times G)\xrightarrow{m_*} K_{B\times B}(G)
+$$
+The problem with this formula is that the map $m_*$ is not proper, so doesn't make sense in $K$-theory. What saves the day is using equivariant descent to rewrite it as
+
+$$
+K_{B\times B}(G)\otimes K_{B\times B}(G) \xrightarrow{p_1^*\otimes p_2^*}K_{B^3}(G\times G) \simeq K_{B}(G\times^B G/B)\xrightarrow{m_*} K_{B}(G/B)\simeq K_{B\times B}(G).
+$$
+The subtle point is that the $K$-theory map
+$$
+K_{B}(G/B)\otimes K_{B}(G/B)\rightarrow K_{B}(G\times^B G/B)
+$$
+does not actually come from a map  of spaces $G/B\times G/B\rightarrow G\times^B G/B$, but rather from the descent. %
+%Note that the space $\{h_1h_2=g\}$ over which we integrate has a $B$ action $(h_1,h_2)\mapsto (h_1b^{-1},bh_2)$ and the integrand $\phi(h_1)\psi(h_2)$ is constant on its orbits by the bi-invariance of $\phi,\psi$. Hence
+%$$
+%(\phi*\psi)(g)= \mathrm{vol}(B)\int_{\{h_1h_2=g\}/B_\Delta} \phi(h_1)\psi(h_2)dh_1dh_2
+%$$
+
+
+\section{Affine Grassmannians and flag varieties}
+Now we try to adapt the convolution constructions from the previous section to the case of the \emph{loop group} $G_\Kc=G((z))$ (we use the notations $\Kc=k((z))$ for the field of formal laurent series and $\Oc = k[[z]]$ for the formal power series).  The group $G_\Kc$ will play the role of the original reductive group $G$ in the finite dimensional construction. This is natural since $G_\Kc$ has a central extension 
+$$
+0\rightarrow \mathbb{C}c\rightarrow \widehat{G}\rightarrow G_\Kc\rightarrow0
+$$ given by the affine Kac-Moody group associated to the affine Dynkin diagram obtained from the Dynkin diagram of $G$. The affine Kac-Moody Lie algebras behave in many respects like finite dimensional simple Lie algebras, and given any interesting construction that works for $G$ it's tempting to try to mimic it for $\widehat{G}$. People often call this compulsion `chiralization' or `affinization'.
+
+
+
+The first ingredient we need is a chiral analog of the Borel $B\subset G$. Consider the subgroup $G_\Oc = G[[z]]\subset G((z))$. Unlike $G_\Kc$, it has an evaluation map  to $G$:
+$$
+\mathrm{ev}\colon G[[z]]\rightarrow G, \quad g(z)\mapsto g(0).
+$$ 
+In fact, for any $d>0$ we have a map
+$$
+\mathrm{ev}_d\colon G[[z]]\rightarrow G[k[z]/(z^d)]
+$$
+which truncates matrix coefficients of $G$ mod $z^d$. The  image of $\ev^{(d)}$ is finite dimensional, and its kernel is the $d$-th \emph{congruence subgroup} $G_\Oc^{(d)}$.
+So we have a tower
+$$
+\cdots\rightarrow G_\Oc^{(3)}\rightarrow G_\Oc^{(2)}\rightarrow G_\Oc^{(1)}
+$$
+where the quotients $G_\Oc^{(i)}/G_\Oc^{(i+1)}$ are finite dimensional unipotent groups.
+
+The loop/Kac-Moody analog of the standard Borel group $B\subset G$ is the \emph{standard Iwahori } group
+$$
+I = \mathrm{ev}^{-1}(B).
+$$
+So for $G=SL(2)$ with $B = $ upper triangular matrices, we'd have
+$$
+I = \left\{g(z)=\begin{bmatrix} a(z)&b(z)\\ zc(z)&d(z)\end{bmatrix} \bigg | a,b,c,d\in k[[t],~ ad-zbc=1.\right\}
+$$
+The analogs of parabolic subgroups $P\subset G$ are subgroups of $G_\Kc$ containing a conjugate of the standard Iwahori $I$, and are called \emph{parahorics.} In particular $G_\Oc$ is a parahoric, and slightly confusingly the standard Coulomb branch construction comes from letting it (rather than $I$) play the role of $B\subset G$ in the finite dimensional case.
+
+The homogeneous space
+$$
+\Gr_G = G_\Kc/G_\Oc
+$$
+is called the \emph{affine Grassmannian} of $G$. 
+
+\begin{example}
+When $G=GL_n=GL(V)$ we can think of $\Gr_G$ as parametrizing $\Oc$-lattices in $\Kc^n=\Kc\otimes_\bC V$: that is, free $\bC[[z]]$-modules $L\subset \bC((z))^n=V\otimes_\bC\bC((z))$. Indeed, $G_\Kc$ clearly acts transitively on the set of such lattices, and the stabilizer of the standard lattice 
+$$
+L_0 = V \otimes_{\bC}\bC[[z]]\subset V \otimes_{\bC}\bC((z))
+$$
+is exactly $G_\Oc$.
+\end{example}
+
+What kind of an object is $\Gr_G$ other than just a set? I don't want to get too far into this except for a few quick comments. First, one can associate to $\Gr_G$ a functor of points: in the example above, this would be the functor sending a test scheme 
+$\Spec R$ to the set of $R$-families of lattices: that is, f.g. projective (aka \emph{locally} free) $R[[z]]$-submodules $\Lambda$ in $R((z))^n$ such that $\Lambda\otimes_{R[[z]]}R((z))=R((z))^n$.
+ This functor is not quite representable by a scheme, but instead by an infinite union (i.e. direct limit)
+$
+X_0\subset X_1\subset X_2\subset\cdots
+$
+of schemes, where the maps are all closed embeddings. In other words, $\Gr_G$ is an \emph{ind-scheme}. We can take $X_k$ to be the set of lattices  $z^{k}L_0\subset L\subset z^{-k}L_0$ that can be sandwiched between two translates of the standard lattice.
+
+
+
+
+
+The affine Grassmannian also has a moduli interpretation: it parametrizes isomorphism classes of pairs $(\mathcal{P},\varphi)$ where $\mathcal{P}$ is a principal $G$-bundle on the formal disk $D=\Spec \Oc$ and $\varphi$ is a trivialization of $\mathcal{P}$ over the formal punctured disk $D^*=\Spec\Kc$. To see the equivalence, if we choose extra data $\psi$ of a trivialization of $\mathcal{P}$ over $D$, then the trivialization $\varphi$ over $D^*$ is equivalent to the data of a section of the trivial $G$-bundle over $D^*$, i.e. an element of $G_\Kc$. Changing the reference trivialization $\psi$ of $D$ amounts to multiplication of this element from the right by a section of $\mathcal{P}$ over $D$, i.e. by an element of $G_\Oc$, so forgetting this auxiliary data we recover the original description of $\Gr$ as a homogeneous space.
+
+
+
+Just like for $B$ and $G/B$, $\Gr_G$ has a residual left multiplication action of $G_\Oc$.  To understand the orbits we use the \emph{Cartan decomposition} for $G_\Kc$, which is an analog of Bruhat decomposition for a parabolic $P\subset G$:
+\begin{align}
+\label{eq:cartan-decomp}
+G_\Kc = \bigsqcup_{\lambda \in P^\vee}G_\Oc \cdot z^\lambda \cdot G_\Oc.
+\end{align}
+Here $P_+^\vee$ stands for the dominant cone in the \emph{co-character lattice} $P=\Hom(\bC^*,T)$ of $G$. For example, when $G=GL_n$ we have $P=\bZ^n$ and you can think of $z^\lambda$ as a diagonal matrix with entries $(z^{\lambda_1},\ldots, z^{\lambda_n})$. The condition that the cocharacter be dominant means that the $\lambda_i$ form a generalized partition $\lambda_1\geq \lambda_2\geq \ldots \geq \lambda_n$. 
+So at the level of the affine Grassmannian we have
+\begin{align}
+\label{eq:gr-decomp}
+\Gr_G = \bigsqcup_{\lambda \in P^\vee}\Gr^\lambda_G,\qquad \Gr^\lambda_G=G_\Oc \cdot z^\lambda \cdot G_\Oc/G_\Oc.
+\end{align}
+\begin{exercise}
+Show that the orbit $\Gr^\lambda$ is a smooth variety of dimension $(2\rho,\lambda)$.
+\end{exercise}
+Similar to the case of finite-type Schubert stratification, we have
+$$
+\overline{\Gr^\lambda} =\Gr^{\leq\lambda} = \bigsqcup_{\mu\leq\lambda}\Gr^\lambda
+$$
+with respect to the dominance order on cocharacters. The $\Gr^{\leq\lambda}$ are finite dimensional projective varieties which are singular in general. But those corresponding to fundamental (or more generally minuscule) coweights are smooth.
+
+\begin{example}
+Let $G=GL(n)$ and consider a coweight $\lambda$ with $\lambda_n\geq0$. Then the corresponding lattice $z^\lambda L_0$ is a sublattice in $L_0$ and the quotient $L_0/z^\lambda L_0$ is a $k$-vector space of dimension $|\lambda| = \sum_i\lambda_i$. Then multiplication by $z$ is a nilpotent operator on this vector space with at most $n$ Jordan blocks of sizes specified by the $\lambda_i$. The condition on the dimension of $L_0/L$ and the Jordan type of $z$ are clearly preserved under the $G_\Oc$ action. Conversely, given an $L$ satisfying these conditions we can find an element of $G_\Oc$ conjugating $z^\lambda L_0$ to $L$  by taking lifts of the cyclic vectors from the Jordan basis of $L_0/L$. So 
+$$
+\Gr^{\lambda}= \{L\subset L_0 ~\big|~ z|_{L_0/L} \text{ has Jordan type } \lambda \}.
+$$
+As a sub-example, consider the dominant coweight $\omega_k=\eps_1+\cdots+\eps_k$. For such a weight we have $\Gr^{\omega_k}=\Gr^{\leq k}$, since there are no simply dominant weights smaller in dominance order. In this case since $|\omega_k|=k$ we have $\dim_\bC(L_0/L)=k$, and since there are no Jordan blocks of size $>1$ the operator $z:L_0/L\rightarrow L_0/L$ is just zero. We write this as 
+\begin{align*}
+\Gr^{\omega_k} &= \{L~\big|~ zL_0\subset L\subset^k L_0 \}\\
+&= \{ L\subset^k L_0 ~\big|~ zL_0\subset L\},
+\end{align*}
+where $L\subset^kL_0$ is shorthand for $\dim_\bC(L_0/L)=k$. In particular we see that $\Gr^{\omega_k}$ is isomorphic to the finite-dimensional Grassmannian of $k$-dimensional quotients of $\bC^n$. It has a tautological rank $k$ vector bundle $\mathcal{L}$ whose fiber is $L_0/L$.
+\end{example}
+
+
+
+If we want to do convolution for the pair $G_{\Kc},G_\Oc$ our first thought might be to look at $\Gr_G\times \Gr_G$ as a $G_\Kc$ space. The problem with this is that the group $G_\Kc$ that's acting is big, in the sense that it doesn't have evaluation maps that let it talk to finite dimensional groups.  For this reason it's simpler to work with the `small' model of the convolution, which was $K_B(G/B)$ in the finite dimensional case. 
+
+In the chiral version, we can make sense of $K_{G_\Oc}(\Gr)$ using the ind-scheme structure as follows: first we define each $K_{G_\Oc}(\Gr^{(n)})$ for each $n\geq0$, and then take the direct limit using the (exact) pushforward maps associated to the closed embeddings $\Gr^{(n)}\hookrightarrow\Gr^{(n+1)}$. Each $\Gr^{(n)}$ is a finite dimensional projective variety, on which the action of $G_\Oc$ factors through the quotient by a congruence subgroup $G^{(d)}_\Oc$. We then define $K_{G_\Oc}(\Gr^{(n)}):=K_{G_\Oc/G_\Oc^{(d)}}(\Gr^{(n)})$ where $d$ is any integer such that the $G_\Oc^{(d)}$ action on $\Gr^{(n)}$ is trivial. Since $G_\Oc^{(i)}/G_\Oc^{(j)}$ is a finite dimensional unipotent group $K_{G_\Oc^{(i)}/G_\Oc^{(j)}}(\pt)=\bZ$ and so this definition is independent of the choice of $d$.
+
+An upshot of this definition: classes in $K_{G_\Oc}(\Gr)$ are by definition pushforwards from a classes on a finite dimensional projective variety.
+
+Now we define convolution using the chiral version of the diagram~\eqref{eq:convolution-b}:
+\begin{equation}
+\label{eq:convolution-gr}
+\begin{tikzcd}
+\Gr\times \Gr &   G_\Kc\times \Gr \arrow{l}[swap]{~p_1\times p_2}\arrow{r}{q} &  G_\Kc\times^{G_\Oc} \Gr \arrow{r}{m} & \Gr.
+\end{tikzcd}
+\end{equation}
+Just like in the finite-dimensional case this makes $K_{G_\Oc}(\Gr)$ into an associative algebra with unit $\Oc_{\Gr^0}$ given by the class of the structure sheaf 1-point orbit through $z^0$. In particular, $K_{G_\Oc}(\Gr_G)$ has a commutative subalgebra isomorphic to $K_{G_\Oc}(\pt)=K_G(\pt)=\mathbb{Z}[\Lambda]^W$ correpsonding to regarding dimensional representation of $G$ as a trivial vector bundle over the one-point orbit $\Gr^0$:
+$$
+R(G)\ni V \mapsto \Oc_{\Gr^0}\otimes V.
+$$
+
+Also similarly to the finite dimensional case, it's useful to make the identification
+$$
+G_\Kc\times^{G_\Oc}\Gr \simeq \Gr\times \Gr, \quad [g,hG_\Oc]\mapsto (g G_\Oc, ghG_\Oc),
+$$
+so that the multiplication map $m$ becomes projection to the second factor.
+\begin{example}
+For $G=GL(n)$, let's unwrap the part of this diagram over $\Gr^{\omega_k}\times\Gr^{\omega_m}\subset\Gr\times\Gr$. The latter space parametrizes pairs of lattices $L,M$ with 
+$$
+ L\subset^k L_0,\qquad  M\subset^m L_0, \quad zL_0\subset L, ~zL_0\subset M
+$$
+with the diagonal $G_\Oc$-action. What locus does it correspond to in $G_\Kc\times^{G_\Oc}\Gr \simeq \Gr\times \Gr$? We can think about this as follows. Lifting $L$ to an elements $g\in G_\Kc$ such that $g(L_0)=L$ and applying $g$ to the second chain of containments in the formula above, we see that the lattice $\tilde{M}=gM$  satisfies
+$$
+%zg(L_0)\subset gM\subset^m g(L_0),  \quad \text{i.e. }
+\tilde{M}\subset^m L, \quad  zL\subset\tilde M.
+$$
+So $q(p^{-1}(\Gr^{\omega_k}\times\Gr^{\omega_m}))$ is the finite-dimensional convolution variety
+$$
+\Gr^{\omega_k}\widetilde\times \Gr^{\omega_m} = \{\tilde M \subset^m L\subset^k L_0 ~\big |~ zL_0\subset L,~ zL\subset \tilde{M}\}. 
+$$
+In other words, this is the $\Gr(m,k)$-bundle over $\Gr(k,n)$ parametrizing 2-step flags of lattices preserved by multiplication by $z$ and terminating at $L_0$, such that the first and second subquotients have dimensions $m$ and $k$ respectively. 
+The endomorphism $z$ of the $(m+k)$-dimensional vector space $L_0/\tilde M$ has square zero, so the maximum size of its Jordan blocks is 2. Note also that the dimension of its kernel is greater than both $m$ and $k$ (the latter by rank nullity). These are precisely the conditions to be in $\overline{\Gr}^{\omega_m+\omega_k}$, so the multiplication map $(\tilde M,L)\mapsto \tilde M$ satisfies
+$$
+m:\Gr^{\omega_k}\widetilde\times \Gr^{\omega_m}\rightarrow \overline{\Gr}^{\omega_m+\omega_k}
+$$
+In fact by the same token as the story with Bott-Samelson resolutions in the finite-type case, the orbit closure has rational singularities and the multiplication map is a resolution: we have
+$$
+Rm_*\mathcal{O}_{\Gr^{\omega_k}\widetilde\times \Gr^{\omega_m}} = \Oc_{\overline{\Gr}^{\omega_m+\omega_k}}
+$$
+with no higher cohomology.
+\end{example}
+
+\subsection{Loop rotation} In the chiral case there is an extra symmetry of $\Gr$ not present in the finite-dimensional story: there is an action of $\bC^*$ given by \emph{loop rotation}:
+$$
+t\cdot g(z) \mapsto g(tz), \quad t\in \bC^*.
+$$
+The convolution diagram~\eqref{eq:convolution-gr} are equivariant with respect to this action, so we can consider $K_{G_\Oc\rtimes\bC^*}(\Gr_G)$. This way we acquire a new equivariant parameter $q$. 
+
+\subsection{Example computations}
+
+Now we can do some examples of computing convolutions in $K_{G_\Oc}(\Gr_G)$ for $G=GL_n$. 
+
+\begin{example}[Abelian case]
+For $n=1$, $G_\Oc$ is the group of units in $\Oc$ (formal powerseries with nonzero constant term), while $G_\Kc$ is the nonzero formal Laurent series. At the level of $\bC$-points the only invariant of an orbit is given by the valuation, so we have
+$$
+\Gr_{GL_1}(\bC) = \bigsqcup_{n\in \bZ} z^n. 
+$$
+Note that at the level of $\bC$-points, the action of loop rotation is trivial! So to get the right answer $\bC_q^*$-equivariantly we will have to be a little bit careful: one way of doing this is to work with the model
+$$
+K_{G_\Oc\rtimes \bC^*}(\Gr_{GL_1})\simeq K_{G_\Oc\times\bC^*\rtimes \bC^*}(G_\Kc/G^{(1)}_\Oc).
+$$
+Write $G_\Kc/G^{(1)}_\Oc=\widetilde{\Gr}$, so  
+$$
+\widetilde\Gr_{GL_1}(\bC) = \bigsqcup_{n\in \bZ}\widetilde\Gr_{GL_1}^n= \bigsqcup_{n\in \bZ} {a_nz^n}, \quad a_n \in \bC^\times.
+$$
+%
+%For $n\geq0$, the orbit $\{z^n\}$ corresponds in the lattice model to $L=z^nL_0\subset L_0$.
+
+Let's write $\Oc_n = \Oc_{\Gr^n}$, which corresponds in the model above to $\Oc_{\widetilde\Gr^n}$.
+Consider the classes $\Oc_{n}$ and $\Oc_{0}\otimes \chi$, where $\chi:\bC^*\hookrightarrow \bC$ is the defining character. Setting $K_{G\times\bC^*}(\pt)=\bC[x^{\pm1},q^{\pm1}]$, we can write the latter as $\Oc_{0}\otimes \chi=x\Oc_{0}=x$. Let's compute the convolutions of these two classes in both orders. This will look a bit silly but is hopefully useful. 
+
+We start with the equivariant sheaf $(\Oc_{0}\otimes \chi)\boxtimes\Oc_{n}$ on $\Gr\times \Gr$ which is just a copy of the representation $\chi$ sitting over $(\widetilde\Gr^0,\widetilde\Gr^n)$.
+In particular, it gives us a $\bC^*\times\bC_q^*$-equivariant (aka bigraded) module over $\bC[a_0^\pm,b_n^\pm]$ given by 
+$$
+\bC[a_0^\pm,b_n^\pm]\otimes \chi,
+$$ 
+where the left $\bC^*$ is the zero-mode from $G_\Oc$ and the right one $\bC_q^*$ is loop rotation. So the generating vector $1\otimes\chi$ has degree $(1,0)$, while $a_0$ has degree $(1,0)$ and $b_n$ degree $(1,n)$.
+
+Pulling this sheaf back to $G_\Kc\times \widetilde\Gr$ via $p=p_1\times p_2$, we get the structure sheaf of the product $z^0G_\Oc\times \bC^*z^n\subset G_\Kc\times \widetilde\Gr$, with equivariant structure twisted by the character $\chi$.  This is a $(G_\Oc\times G_\Oc)\times\bC^*\rtimes\bC^*_q$-equivariant sheaf, so in particular looking at zero modes gives an action of $\bC^*\times\bC^*\times\bC^*_q$, i.e. a triple grading. If we coordinatize the orbit $z^0G_\Oc$ as $G_\Oc = a_0z^n+a_{1}z^{}+\cdots$ with $a_0\neq0$, then we can think of it as the $\bC^*\times\bC^*\times\bC^*_q$-equivariant $\bC[b_n;a_0^{\pm1},a_{1},\cdots]$-module 
+\begin{align}
+\label{eq:big-module}
+\bC[b_n^\pm;a_0^{\pm1},a_{1},\cdots]\otimes p^*\chi,
+\end{align}
+where the generating vector $p^*\chi$ has weight $(1,0,0)$, $b_n$ has weight $(0,1,n)$, $a_0$ has weight $(1,-1,0)$, $a_1$ has weight $(1,-1,1)$, etc. 
+
+The relevant convolution variety is
+$$
+\widetilde\Gr^{0}\widetilde\times \widetilde\Gr^{n} = \{ a_0\}\times\{b_nz^n\},
+$$
+and the quotient map $q$ is $q(a(z),b_nz^nG^1_\Oc) = (a(z)G^1_\Oc,a(z)b_nz^nG^1_\Oc)$.
+Now pullback along $q$ of $\Oc_{\Gr^{n}\widetilde\times \Gr^{0}}\otimes \chi$ gives a module generated by a vector $q^*\chi$ of weight $(1,0,0)$, i.e. the same $G_\Oc\times G_\Oc\rtimes \bC^*$-equivariant sheaf as~\eqref{eq:big-module}. 
+%$$
+%\Oc_{z^nL_0}\widetilde\boxtimes(\Oc_{L_0}\otimes \chi)= \Oc_{\Gr^{n}\widetilde\times \Gr^{0}}\otimes \chi,
+%$$
+Pushing forward along the second projection $m$, we get
+$$
+\Oc_{z^n}*(\Oc_{1}\otimes \chi) = \Oc_{z^n}\otimes\chi,
+$$
+or more compactly $x*\Oc_{z^n} = \Oc_{z^n}\otimes\chi$. This illustrates the general principal that the convolution is linear over $K_G(\pt)$ in the first argument.
+
+Now let's do the product in the other order. The pullback by $p$ of the equivariant sheaf $\Oc_{n}\boxtimes (\Oc_{0}\otimes \chi)$ on $\Gr\times \Gr$ now gives a 
+$G_\Oc\otimes G_\Oc\rtimes\bC^*_q$-equivariant $\bC[b_0^\pm;a_n^{\pm1},a_{n+1},\cdots]$-module 
+\begin{align}
+\label{eq:big-module2}
+\bC[b_n^\pm;a_n^{\pm},a_{n+1},\cdots]\otimes \chi,
+\end{align}
+and with respect to the triple grading the generating $p^*\chi$ has weight $(0,1,0)$, while $a_n\sim (1,-1,n)$ and $b_0\sim (0,1,0)$. This time the convolution variety is $\Gr^{n}\widetilde\times \Gr^{0} $
+and the quotient map $q$ is $q(a(z),b_0G^1_\Oc) = (a(z)G^1_\Oc,a(z)b_0G^1_\Oc)$.
+But when we pull back $\Oc_{\Gr^{n}\widetilde\times \Gr^{0}}\otimes \chi$ along $q$, we still get a module with generating vector $q^*(\chi)$ of weight $(1,0,0)$, rather than the $(0,1,0)$ we wanted. The solution is to twist the equivariant structure with respect to the loop rotation and consider instead the sheaf $\Oc_{\Gr^{n}\widetilde\times \Gr^{0}}\otimes \chi\{n\}$, where $\chi\{n\}$ has weight $(1,n)$. Then pulling back gives a generating vector $q^*(\chi\{n\})$ of weight  $(1,0,n)$, and identifying this with the cyclic vector $a_np^*(\chi)$ of the same weight gives an isomorphism. The upshot is we computed
+$$
+\Oc_n * (\Oc_{0}\otimes \chi) = \Oc_n\otimes\chi\{n\},
+$$
+or more compactly
+$$
+[\Oc_n]*x =  q^n x*[\Oc_n].
+$$
+\end{example}
+
+
+\begin{example}{($GL_2$ and mutation)}
+
+\end{example}
+
+
+
+\section{$K$-theoretic Coulomb branch}
+Quick backup to finite dimensional case: Springer resolution example. Definition of $\Rc_{G,N}$ and computation of convolution for $G=\bC^*,N=\bC$. Example of $U_q(sl_2)$.
+
+\section{Equivariant localization}
+
+\section{Coulomb branches and difference operators}
+
+\section{Monopoles and residues}
+
+\section{Webster's calculus: finite dimensional case}
+
+\section{Webster's calculus for Coulomb branches}
+
+
+ \end{document}
+
