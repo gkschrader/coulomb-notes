@@ -533,6 +533,10 @@ plus a compatibility condition on the pullbacks of $I$ under the three maps $G\t
 Spell out this cocycle condition.
 \end{exercise}
  The same algebraic data makes sense with $E$ replaced by an arbitrary coherent sheaf $\Ec$. We take it as our definition of an equivariant structure on $\Ec$ and consider the category $\Coh_G(X)$ of $G$-equivariant coherent sheaves on $X$ whose objects are coherent sheaves equipped with an equivariant structure. Note that an equivariant structure need not exist for a general coherent sheaf on $X$! 
+ 
+ \begin{exercise}
+ Show the line-bundle $\Oc(1)$ on $\mathbb{P}^1$ cannot be made $PGL(2)$-equivariant (where $PGL(2)$ acts on $\mathbb{P}^1$ by projective transformations in the defining way.)
+ \end{exercise}
 
 We define the $G$-equivariant $K$-theory of $X$ to be the Grothendieck group $K_G(X)$ of the category of $G$-equivariant coherent sheaves on $X$.
 
@@ -545,12 +549,12 @@ A $G$-equivariant coherent sheaf on $X=\pt$ is the same thing as a finite-dimens
 \item If $G$ is a complex semisimple Lie group with weight lattice\footnote{The weight lattice of $G$ is the character lattice of its Cartan torus $T=B/[B,B]$.} $\Lambda$  and Weyl group $W$, it follows from e.g. Weyl's formula that $K_G(\pt)=\mathbb{Z}[\Lambda]^W=K_T(\pt)^W$. As a sub-sub-example, $K_{GL_n}(\pt)=\bZ[w_1^{\pm1},\ldots,w_n^{\pm1}]^{S_n}$ is the ring of symmetric Laurent polynomials in $n$ variables.
 \item If $B\subset G$ is a Borel (maximal closed, connected, solvable) subgroup then by Lie's theorem $K_B(\pt)=K_T(\pt)=\bZ[\Lambda]$.
 \end{itemize}
-Recall Chevalley's theorem, which says that $\bZ[\Lambda]$ is a free module of rank $|W|$ over the invariant ring $\bZ[\Lambda]^W$. So the same is true of $K_T(\pt)$ as a $K_G(\pt)$-module. 
+Recall Chevalley's theorem, which says that the invariant ring $\bZ[\Lambda]^W$ is a polynomial ring over which $\bZ[\Lambda]$ is a free module of rank $|W|$. So the same is true of $K_T(\pt)$ as a $K_G(\pt)$-module.
 \end{example}
 
 Given a pair of $G$-varieties $X,Y$, the exact `external tensor product' functor 
 $$
-\Coh_G(X)\times \Coh_G(Y)\rightarrow \Coh_G(X\times Y),\quad \Ec\otimes\Fc \rightarrow p_X^*\Ec\otimes p_Y^*\Fc
+\Coh_G(X)\times \Coh_G(Y)\rightarrow \Coh_G(X\times Y),\quad \Ec\otimes\Fc \rightarrow \Ec\boxtimes\Fc:=p_X^*\Ec\otimes p_Y^*\Fc
 $$ defines a map
 \begin{align}
 \label{eq:multiplication}
@@ -801,19 +805,23 @@ K_G(X\times Y)\otimes_{K_G(\pt)} K_G(Y\times Z)\rightarrow K_G(X\times Z)
 $$
 satisfies
 $$
-(\mathcal{F}\boxtimes\mathcal{G})\star(\mathcal{G}'\boxtimes\mathcal{E}) = \langle \mathcal{G},\mathcal{G}'\rangle_Y \mathcal{F}\boxtimes \mathcal{E}.
+(\mathcal{F}\boxtimes\mathcal{G})\star(\mathcal{G}'\boxtimes\mathcal{E}) = \langle \mathcal{G},\mathcal{G}'\rangle_Y \mathcal{F}\boxtimes \mathcal{E},
+$$
+where 
+$$
+\langle\mathcal{G},\mathcal{G}'\rangle_Y =  \chi_G(\mathcal{G}\cdot\mathcal{G}') := f_*(\mathcal{G}\otimes\mathcal{G}')\in K_G(\pt),\quad f:Y\rightarrow \pt
 $$
 \end{exercise}
 
 \begin{exercise}
 If $X$ satisfies the hypotheses of Lemma~\ref{lem:diag-res} and $[\Oc_\Delta]=\sum_i\alpha_i\boxtimes\beta_i\in K_G(X\times X)$, show that for any class $\gamma\in K_G(X)$ we have
 $$
-\gamma = \sum_i \langle \gamma,\beta_i\rangle_X \alpha_i,
+\gamma = \sum_i \langle \gamma,\beta_i\rangle_X \alpha_i.
 $$
-where 
-$$
-\langle \gamma,\delta\rangle_X = \chi_G(\gamma\cdot\delta) := f_*(\gamma\otimes\delta)\in K_G(\pt),\quad f:X\rightarrow \pt.
-$$
+%where 
+%$$
+%\langle \gamma,\delta\rangle_X = \chi_G(\gamma\cdot\delta) := f_*(\gamma\otimes\delta)\in K_G(\pt),\quad f:X\rightarrow \pt.
+%$$
 \end{exercise}
 In particular, the classes $\{\alpha_i\}$ (or equivalently $\{\beta_i\}$) span $K_G(X)$ as a $K_G(Y)=K_G(\pt)$-module, and thus $K_G(X)$ is finitely generated over $K_G(\pt)$. This shows not every variety can admit a decomposition of the diagonal (e.g. a curve of $g>0$ where $\Pic(X)$ is not finitely generated.)
 
@@ -1065,8 +1073,9 @@ On the other hand, since the map $\pi:G/B\rightarrow G/P_i$ is a $\bP^1$-bundle,
 by the projective bundle theorem $K_G(G/B)$ is a free module of rank 2 over $K_G(G/P_i)$, and as a basis we can take the classes $\Oc,\Oc(-1)$, for which we have 
 \begin{align}
 \label{eq:pi-pushforwards}
-R\pi_*\Oc_{G/B}=\Oc_{G/P_i},~R\pi_*\Oc(-1)=0.
+R\pi_*\Oc_{G/B}=\Oc_{G/P_i},~R\pi_*\Oc(-1)=0
 \end{align}
+by cohomology-and-base-change.
 This tells us that $\pi^*\pi_*$ is the projection onto the first factor in the direct sum decomposition
 $$
 K_G(G/B)= K_G(G/P_i)\cdot [\Oc]\oplus K_G(G/P_i)\cdot [\Oc(-1)].
@@ -1084,13 +1093,17 @@ We can make this all more explicit if we identify these groups with various kind
 $$
 K_G(G/B)=\bZ[\Lambda], \quad K_{G}(G/P_i)=\bZ[\Lambda]^{\langle s_i\rangle},
 $$
-and under this identification we have $[\Oc(-1)]=x_{\omega_i}^{-1}$. Then it's easy to check the following operators do the job:
+Recall that $x_\lambda$ corresponds to the $G$-equivariant line bundle pulled back from the 1-dimensional $B$-representation given by the character $\lambda$, and under this identification we have $[\Oc(-1)]=x_{\omega_i}^{-1}$. 
+
+Then it's easy to check the following operators do the job:
 \begin{lemma}
 The convolution action of $[\Oc_{G/B\times_{G/P_i} G/B}]$ on $f\in \bZ[\Lambda]=K_G(G/B)$ is given by the \emph{Demazure operator}
 $$
 [\Oc_{G/B\times_{G/P_i} G/B}]\star f=L_i(f),\quad L_i(f) = \frac{f - x_{\alpha_i}^{-1}s_i\cdot f}{1-x_{\alpha_i}^{-1}}.
 $$
 \end{lemma}
+
+
 Note that by projection formula and~\eqref{eq:pi-pushforwards} we have $\pi_*\pi^*[f]=[f][\pi_*\Oc]=[f]$, and so $L_i^2=L_i$.
 
 As we have seen above, if we set $Z(s_i)=G/B\times_{G/P_i} G/B$ and write $q_{i,1},q_{i_2}$ for the two projections then by base change 
@@ -1099,7 +1112,7 @@ we can re-express the Demazure operators as
 \label{eq:roof-demazure}
 L_i = (q_{i,1})_*q_{i,2}^*.
 \end{align}
-This is quite convenient for working out the relations between the Demazure operators since it gives a way to compose them.  Given a sequence of simple roots $\underline{\alpha}=(\alpha_{i_1},\ldots, \alpha_{i_l})$, define the \emph{big Bott-Samelson variety}
+This is convenient for working out the relations between the Demazure operators since it gives a way to compose them.  Given a sequence of simple roots $\underline{\alpha}=(\alpha_{i_1},\ldots, \alpha_{i_l})$, define the \emph{big Bott-Samelson variety}
 $$
 Z(\underline{\alpha})= G/B\times_{G/P_{i_1}}G/B\times_{G/P_{i_2}}\cdots\times_{G/P_{i_d}}G/B.
 $$
@@ -1482,8 +1495,62 @@ $$
 \end{example}
 
 
-\begin{example}{($GL_2$ and mutation)}
+\begin{example}{(Mutation in $\Gr_{GL_n}$.)}
+Let $\Oc_{\Gr^k}$ be the structure sheaf of the closed orbit $\Gr^k:=\Gr^{\omega_k}$ in $\Gr_{GL_n}$. Recall that it has a canonical line bundle whose fiber is $\det(L_0/L)$, and write
+$$
+\Oc_{\Gr^k}(r) = \Oc_{\Gr^k}\otimes\det(L_0/L)^r.
+$$
+Let's also make the following abbreviation for convolution varieties:
+$$
+\Gr^{(k_1,k_2)} = \Gr^{k_1}\widetilde{\boxtimes}\Gr^{k_2}=\{L_2\subset^{k_2}L_1\subset^{k_1} L_0~|~ zL_i\subset L_{i+1}\}.
+$$
+Then on $\Gr^{(k_1,k_2)}$ we have equivariant vector bundles $L_0/L_1,~L_1/L_2$, and we have
+$$
+\Oc_{\Gr^{k_1}}(r_1) * \Oc_{\Gr^{k_2}}(r_2) = m_*(\Gr^{(k,l)}\otimes \det(L_0/L_1)^{r_1}\otimes\det(L_1/L_2)^{r_2}),
+$$
+where as usual $m(L_2,L_1,L_0)=L_2$. Note that 
+$$
+m^*\det(L_0/L_2)\simeq \det(L_0/L_1)\otimes\det(L_1/L_2).
+$$
+So if $r_1=r_2=r$, since the $\overline{\Gr}^\lambda$ have rational singularities the projection formula gives
+\begin{align*}
+\Oc_{\Gr^{k_1}}(r) * \Oc_{\Gr^{k_2}}(r)&=m_*(\Oc_{\Gr^{(k,l)}}\otimes m^*\det(L_0/L_2)^r)\\
+&\simeq m_*\Oc_{\Gr^{(k,l)}}\otimes \det(L_0/L_2)^r\\
+&=\Oc_{\overline{\Gr}^{\omega_k+\omega_l}}\otimes \det(L_0/L_2)^r.
+\end{align*}
 
+
+
+Now if $k_1=k_2=k$, multiplication by $z$ gives us a map between rank-$k$ vector bundles 
+$$
+z\colon L_0/L_1\longrightarrow L_1/L_2,
+$$
+whose degeneracy locus is the divisor $D\subset \Gr^{(k,k)}$ corresponding to the line bundle $\det(L_0/L_1)\otimes\det(L_1/L_2)^{-1}$. In other words, we have an exact triangle
+$$
+\mathcal{O}_{\Gr^{(k,k)}}\otimes\det(L_0/L_1)\otimes\det(L_1/L_2)^{-1}\longrightarrow \mathcal{O}_{\Gr^{(k,k)}}\longrightarrow \mathcal{O}_D.
+$$
+Applying $Rm_*$, this becomes
+$$
+\Oc_{\Gr^k}(1)*\Oc_{\Gr^k}(-1)\longrightarrow \Oc_{\Gr^k}*\Oc_{\Gr^k}\rightarrow Rm_*\Oc_D.
+$$
+The right term here is actually also a convolution, which we can see by
+considering the variety
+$$
+\widetilde{D} = \{L_2\subset^{k-1}M\subset^1 L_1 \subset^{k}L_0~\big|~zL_0\subset L_1, ~zM\subset L_2\}.
+$$
+Then the projection $\pi:\widetilde{D}\rightarrow D$ forgetting $M$ is a proper birational contraction, as is the projection $\pi':\widetilde D\rightarrow \Gr^{k+1,k-1}$ forgetting $L_1$. So we have $R\pi_*\Oc_{\widetilde D}=\Oc_D,~R\pi'_*\Oc_{\widetilde D}=\Oc_{\Gr^{k+1,k-1}}$ and hence
+$$
+Rm_*\Oc_D = Rm_*R\pi_* \Oc_{\widetilde D} = Rm'_*R\pi'_* \Oc_{\widetilde D}=Rm'_*\Oc_{\Gr^{k+1,k-1}}=\Oc_{\Gr^{k+1}}*\Oc_{\Gr^{k-1}}.
+$$
+So we have an exact triangle
+$$
+\Oc_{\Gr^k}(1)*\Oc_{\Gr^k}(-1)\longrightarrow \Oc_{\Gr^k}*\Oc_{\Gr^k}\rightarrow \Oc_{\Gr^{k+1}}*\Oc_{\Gr^{k-1}},
+$$
+which gives the following relation in $K$-theory:
+\begin{align}
+\label{eq:gr-mut}
+[\Oc_{\Gr^k}(1)]\cdot[\Oc_{\Gr^k}(-1)] = [\Oc_{\Gr^k}]^2 - [\Oc_{\Gr^{k+1}}]\cdot[\Oc_{\Gr^{k-1}}].
+\end{align}
 \end{example}
 
 
