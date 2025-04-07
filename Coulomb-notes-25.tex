@@ -264,6 +264,7 @@ urlcolor=blue]{hyperref}
 
 \newcommand{\leg}{S}
 \newcommand{\pt}{\mathrm{pt}}
+\newcommand{\pr}{\mathrm{pr}}
 
 \newcommand{\red}[1]{{\color{red}#1}}
 \newcommand{\blue}[1]{{\color{blue}#1}}
@@ -519,6 +520,7 @@ Check directly that convolution in $K$-theory is associative by showing
 \label{eq:conv-assoc}
 (\Kc\star\mathcal{L})\star\Mca = (p_{XW})_*\left(p_{XY}^*\Kc\otimes p_{YZ}^*\mathcal{L}\otimes p_{ZW}^*\Mca\right)=\Kc\star(\mathcal{L}\star\Mca).
 \end{align}
+(The previous lemma is the special case $Z=\pt$.)
 \end{exercise}
 
 
@@ -668,17 +670,17 @@ For $n=2$, we can visualize the elements of the monomial basis $\{x^ny^m\}$ for 
 \end{exercise}
 In order to get a complex of equivariant vector bundles, we need to \emph{define} an action of $GL(V)\times GL(1)$ on each term in such a way that the differentials become intertwiners.
 
-If we let $GL(V)$ act diagonally $\mathbb{C}[V]\otimes \Lambda^\bullet V^*$ via the dual of the defining representation, this works since the pairing between $V$ and $V^*$ used to construct the differential is $GL(V)$-invariant. In other words, the class in $K_{GL_n}(V)$ used to construct the $k$-th term of the resolution is $\pi^*[\Lambda^k V^*]$ where $\pi:V\rightarrow \pt$. On the other hand, if $\chi^m$ is the character $z\mapsto z^m$ of $GL(1)$, then $\pi^*[\chi_m]$ is the twist of $\bC[V]$ where things in the degree $l$-th piece of the symmetric algebra have weight $m+l$. So in order to have the differentials be maps of $GL(1)$-modules, we should impose that $GL(1)$ acts diagonally on $\Lambda^kV^*$ by $\chi^{-k}$, so that the $k$-th term of the resolution is
+If we let $GL(V)$ act diagonally $\mathbb{C}[V]\otimes \Lambda^\bullet V^*$ via the dual of the defining representation, this works since the pairing between $V$ and $V^*$ used to construct the differential is $GL(V)$-invariant. In other words, the class in $K_{GL_n}(V)$ used to construct the $k$-th term of the resolution is $\pi^*[\Lambda^k V^*]$ where $\pi:V\rightarrow \pt$. On the other hand, if $\chi^m$ is the character $z\mapsto z^m$ of $GL(1)$, then $\pi^*[\chi_m]$ is the twist of $\bC[V]$ where things in the degree $l$-th piece of the symmetric algebra have weight $m+l$. So in order to have the differentials be maps of $GL(1)$-modules, we should impose that $GL(1)$ acts diagonally on $\Lambda^kV^*$ by $\chi^{-k}$, so that the $k$-th term of the resolution is the module
 $$
-\pi^*\left( \Lambda^k V^*\boxtimes \chi^{-k}\right)= e_k(w_1,\ldots, w_{n})s^{-k}\cdot \Oc_V.
+\pi^*\left( \Lambda^k V^*\boxtimes \chi^{-k}\right)= e_k(w_1^{-1},\ldots, w^{-1}_{n})s^{-k}\cdot \Oc_V.
 $$
 Hence in $K_H$ we get
 $$
-[\Oc_{\{o\}}] =  [\Oc_{V}]\sum_{k=0}^{n}(-1)^k [\Lambda^k V^*\boxtimes \chi^{-k}].
+[\Oc_{\{o\}}] =  [\Oc_{V}]\sum_{k=0}^{n}(-1)^k \pi^*[\Lambda^k V^*\boxtimes \chi^{-k}].
 $$
 For $H=G$, under the isomorphism $K_G(\pt)\simeq \mathbb{Z}[\Lambda]^W$ this reads
 $$
-[\Oc_{\{o\}}] = [\Oc_V]\cdot\sum_{k=0}^{n}(-1)^ke_k(w_1,\ldots, w_{n})s^{-k} = [\Oc_V]\prod_{i=1}^{n}(1-s^{-1}w_i).
+[\Oc_{\{o\}}] = [\Oc_V]\cdot\sum_{k=0}^{n}(-1)^ke_k(w_1^{-1},\ldots, w_{n}^{-1})s^{-k} = [\Oc_V]\prod_{i=1}^{n}(1-s^{-1}w_i^{-1}).
 $$
 The same formula holds for $H=B,T$, the only difference being that the base ring is the larger one $\bZ[\Lambda]=\bC[w_1^{\pm1},\ldots, w^{\pm1}_{n}]$ of all Laurent polynomials.
 
@@ -708,7 +710,7 @@ In fact, all that is needed is that $E$ is an affine bundle (i.e. without a cano
 
 We can also use the Koszul resolution 
 $$
-\cdots \rightarrow\pi^*(\Lambda^2 E^*)\rightarrow \pi^*(E^*)\rightarrow \Oc_E
+\Oc_X = \pi^*\Lambda^\bullet E^*=\cdots \rightarrow\pi^*(\Lambda^2 E^*)\rightarrow \pi^*(E^*)\rightarrow \Oc_E
 $$
 of $\Oc_X$ by vector bundles on $E$ to compute the restriction to the zero section map $i^*:K_G(E)\rightarrow K_G(X)$, which is given by the alternating sum of cohomology sheaves of the complex 
 $$
@@ -732,14 +734,14 @@ i^*i_*[\mathcal{G}] =  \lambda(E^*)\otimes[\mathcal{G}], \quad \lambda(V):= \sum
 Suppose that $X$ is a smooth, proper $G$-variety for which the diagonal $[\mathcal{O}_\Delta]\in K_G(X\times X)$ is in the image of the external tensor product map $K_G(X)\otimes_{R(G)}K_G(X)\rightarrow K_G(X\times X)$. Then for any $G$-variety $Y$ the map 
 \begin{align}
 \label{eq:mult-map}
-\mu\colon K_G(X)\otimes_{R(G)}K_G(Y)\rightarrow K_G(X\times Y), \quad (\Ec,\Fc)\mapsto \Ec\boxtimes\Fc
+\pi\colon K_G(X)\otimes_{R(G)}K_G(Y)\rightarrow K_G(X\times Y), \quad (\Ec,\Fc)\mapsto \Ec\boxtimes\Fc
 \end{align}
 is an isomorphism.
 \end{lemma}
 \begin{proof}
-The key idea is to look at the `matrix-vector product' map
+The key idea is to use the convolution
 $$
-K_G(Y\times X)\otimes K_G(X)\rightarrow K_G(Y), \quad \mathcal{K}\otimes \Ec \mapsto (p_Y)_*(\mathcal{K}\otimes p_X^*\Ec)=:\mathcal{K}\star\Ec
+K_G(Y\times X)\otimes K_G(X)\rightarrow K_G(Y), \quad \mathcal{K}\otimes \Ec \mapsto \mathcal{K}\star\Ec=(p_Y)_*(\mathcal{K}\otimes p_X^*\Ec).
 $$
 %which is well-defined since $p_X$ is flat and $p_Y$ is proper (since $X$ is by assumption). In particular, when $X=Y$ and $\mathcal{K}=\Oc_\Delta$, we have $\Oc_\Delta\star \Ec=\Ec$. Maybe it's worth spelling out why:  the convolution with $\Oc_\Delta$ map is
 %$$
@@ -781,10 +783,10 @@ Then for any $\mathcal{K}\in K_G(Y\times X)$ we have
 \begin{align*}
 \mathcal{K} &= (p_{13})_*\left(p_{12}^*\mathcal{K} \cdot p_{23}^*\Oc_\Delta\right)\\
 &=\sum_i (p_{13})_*\left(p_{12}^*\mathcal{K}\otimes p_{2}^*\alpha_i\otimes p_{3}^*\beta_i\right)\\
-&=\sum_i (p_{13})_*\left(p_{12}^*\mathcal{K}\otimes p_{2}^*\alpha_i\otimes p_{13}^*p_2^*\beta_i\right)\\
-&=\sum_i \left\{(p_{13})_*(p_{12}^*\mathcal{K}\otimes p_{12}^*p_{2}^*\alpha_i)\right\}\otimes p_2^*\beta_i\\
+&=\sum_i (p_{13})_*\left(p_{12}^*\mathcal{K}\otimes p_{12}^*q_X^*\alpha_i\otimes p_{13}^*q_X^*\beta_i\right)\\
+%&=\sum_i \left\{(p_{13})_*(p_{12}^*\mathcal{K}\otimes p_{12}^*q_{X}^*\alpha_i)\right\}\otimes p_2^*\beta_i\\
 &=\sum_i \left\{(p_{13})_*(p_{12}^*(\mathcal{K}\otimes p_{2}^*\alpha_i)\right\}\otimes p_2^*\beta_i\\
-&=\sum_i p_1^*\left\{(p_1)_*(\mathcal{K}\otimes p_{2}^*\alpha_i)\right\}\otimes p_2^*\beta_i
+&=\sum_i p_Y^*\left\{(p_Y)_*(\mathcal{K}\otimes p_{2}^*\alpha_i)\right\}\otimes p_2^*\beta_i
 \end{align*}
 where we used the ability to factor $p_3 = p_2\circ p_{13}, ~p_2 = p_2\circ p_{12}$, then  the projection formula, then the monoidality of pullback, then base change for
 $$
@@ -1555,8 +1557,134 @@ which gives the following relation in $K$-theory:
 
 
 
+\section{Warmup to matter}
+
+Suppose $N$ is a representation of $G$. Even if $N$ is irreducible, the same will almost never be true of the $B$-representation we get when restricting $N$ to $B$, since the latter can only increase weights. So there will typically be lots of $B$-subrepresentations $U\subset N$. If we pick one we can form the induced $G$-space
+$$
+X_U := G\times^B U,
+$$
+which is a $G$-equivariant vector bundle over $X_{0}=G/B$ with fiber modeled on $U$.
+\begin{example}
+Take $N=\g$ to be the adjoint representation and $U=\mathfrak{n}=[\mathfrak{b},\mathfrak{b}]\subset \g$ to be the Lie algebra of the unipotent radical of $\mathfrak{b}$. Then $X_U\simeq T^*(G/B)$ is the cotangent bundle of $G/B$.
+\end{example}
+
+We'd like to incorporate these $B$-representations $U$, or equivalently the $G$-equivariant vector bundles $X_U$, into the convolution story somehow. But we need to be careful here,  since -- being vector bundles -- the varieties $X_U$ themselves are not proper.  Also recall that by the Thom isomorphism, we can identify 
+$$
+K_G(X_U)\simeq K_G(G/B)\simeq K_T(\pt),
+$$
+so at least as modules over $K_G(\pt)$ we don't get anything new from the $X_U$ alone. 
+
+
+But where the $X_U$ really come into their own is that, as well as being a vector bundles over $G/B$, they come with a $G$-equivariant `action map' to the $G$-module $N$:
+$$
+\mu: X_U\rightarrow N, \quad [g,u]B\mapsto g\cdot u.
+$$
+Unlike the projection to $G/B$, the action map $\mu$ is proper but is usually far from being a locally trivial fibration:
+\begin{example}
+In the case of $T^*G/B$ the image of this map $(g,u)B\mapsto gug^{-1}\in\g$ is the cone of all nilpotent elements $\mathcal{N}\subset \g$ and is a resolution of singularities of the latter, known as the Springer resolution. Over a regular element of $\mathcal{N}$ (in type $A$, a nilpotent matrix whose Jordan type has a single block) the fiber of $\mu$ consists of a single element (in type $A$, the flag determined by the Jordan basis.) But over the $0\in \g$, the fiber is all of $G/B$.
+
+\end{example}
+The action map gives us another way to view $X_U$ as
+$$
+X_U = \left\{ (gB,v)\in G/B\times N ~\big|~ v\in gU\subset N \right\}.
+$$
+
+We can use the proper maps $\mu$ to form fiber products:
+$$
+X_{U_1}\times_N X_{U_2}=\{(g_1B,g_2B,v)\in G/B\times G/B\times N~\big|~ v\in g_1U_1\cap g_2U_2\}.
+$$
+Even if we're only interested in $K_G(X_U)$ for a single $U$, the ability to vary $U$ will still be useful.
+ 
+The fiber product $X_{U_1}\times_N X_{U_2}$ maps $G$-equivariantly to $G/B\times G/B$, but will generally no longer be a vector bundle: and over the pre-image of the orbit $O_w$ through $(gB,B)\in G/B\times G/B$ it is a vector bundle with fiber modeled on $wU_1\cap U_2$, i.e the $G$-equivariant vector bundle on $O_w$ induced from the $H=B\cap wBw^{-1}$-module $wU_1\cap U_2$. In particular, by the cellular fibration lemma $K_G(X_{U_1}\times_N X_{U_2})$ is a free module over $K_G(\pt)$ of rank $|W|^2$.
+
+
+
+Suppose $M_1,M_2$ are smooth, proper $G$-varieties with equivariant vector bundles $E_1,E_2$. Since $E_1,E_2$ are not proper, we can't run the convolution story with them directly since pushforward from $E_1\times E_2$ will not be well-defined. On the other hand, suppose that we have a closed $G$-subvariety $i:Z\hookrightarrow E_1\times E_2$ (maybe not smooth) with the property that the restricted projection
+$$
+\overline{\pi}_2\colon Z\rightarrow E_1\times M_2
+$$
+is proper. Then $\pr_{E_1}\circ i:Z\rightarrow E_1$ is proper, and so for $\mathcal{M}\in K_G(Z)$ and $\alpha\in K_G(E_2)$ we get a well-defined convolution
+$$
+\mathcal{M}*\alpha = (\pr_{E_1}\circ i)_*\left(\mathcal{M}\otimes i^*\pr_{E_2}^*\alpha\right)\in K_G(E_1).
+$$
+In particular, we can apply this  setup to 
+$$
+Z=Z_{U_1,U_2}=X_{U_1}\times_N X_{U_2}\subset X_{U_1}\times X_{U_2},
+$$
+since in this case the map 
+$$
+\overline{\pi}_2 \colon X_{U_1}\times_N X_{U_2}\rightarrow X_{U_1}\times G/B, \quad (g_1B,g_2B,v)\mapsto ((g_1B,v),g_2).
+$$ 
+is actually just a closed embedding. 
+
+Now return to the generality of the previous paragraph. Recall that we can use the Thom isomorphism to identify $K_G(E_i)\simeq K_G(M_i)$, and so we can think about $K_G(Z)$ as `acting' from $K_G(M_2)$ to $K_G(M_1)$. On the other hand, we already have seen something else that acts like this, namely $K_G(M_1\times M_2)$. 
+In fact, we have the following diagram which shows that this action actually factors through the old one of $K_G(M_1\times M_2)$:
+\begin{lemma}
+Let $z_1:M_1\times M_2\rightarrow E_1\times M_2$ be the zero-section inclusion. Then we have a commutative diagram
+$$
+\begin{tikzcd}
+ K_G(Z) \arrow{r} \arrow{d}{z_1^*\overline{\pi}_{2,*}}& \Hom_{K_G(\pt)}(K_G(E_2),K_G(E_1)) \arrow{d}{\mathrm{Thom}}\\
+K_G(M_1\times M_2) \arrow{r}{\rho}&  \Hom_{K_G(\pt)}(K_G(M_2),K_G(M_1))
+\end{tikzcd}
+$$
+\end{lemma}
+\begin{proof}
+Another standard argument with base-change/projection formula, see Chris-Ginzburg Lemma 5.4.27 (although watch out for typos).
+\end{proof}
+In our case, we have $M_1=M_2=G/B$ and the left vertical arrow is injective since $\overline{\pi}_2$ is a closed embedding and $z^*_1:K_G(X_{U_1})\simeq K_G(G/B)$ is the Thom isomorphism. In particular, the representation of $K_G(Z)$ on $K_G(G/B)$ coming from the diagram is \emph{faithful.}
+
+
+Recall that we analyzed the convolution algebra for $N=0$ by computing the action of classes of sheaves supported on the $G$-orbit closures $\overline{O}_1=O_1,\overline{O}_{s_i}\subset G/B\times G/B$ for the identity element and the simple reflections. The preimage $\pi^{-1}O_1$ in $Z_{U_1,U_2}$ is the vector bundle on the diagonally embedded $G/B\rightarrow (G/B)^2$ with fiber $gU_1\cap gU_2$ over $(gB,gB)$. Its image under $\overline{\pi}_2$ is a vector bundle on the diagonal of the zero section in $X_{U_1}\times G/B$. Hence $\mathcal{O}_{\pi^{-1}O_1}$ has a Koszul resolution by $\pi^*[U_1/(U_1\cap U_2)]^\vee$, where we write $U_1/(U_1\cap U_2)$ for the $G$-equivariant vector bundle on the orbit induced by the $B$-rep $U_1/(U_1\cap U_2)$ (i.e. having the latter as its fiber over the identity coset.) 
+
+Using this resolution to compute the restriction $z_1^*$ we get
+$$
+z_1^*\overline{\pi}_{2,*}\left(\pi^{-1}O_1\right) = [U_1/(U_1\cap U_2)]^\vee\otimes [\mathcal{O}_\Delta]\in K_G(G/B\times G/B).
+$$
+
+Recalling that the $[\mathcal{O}_\Delta]$ is the convolution identity element, we see that the action of $[\pi^{-1}O_1]$ on $f\in K_G(G/B)=\mathbb{Z}\Lambda$ is given by the multiplication operator
+$$
+[\pi^{-1}O_1]\cdot f = [U_1/(U_1\cap U_2)]^\vee \times f.
+$$
+Following Webster's notation, let's call this operator 
+$$
+r({U_1,U_2}) := [\pi_{U_1,U_2}^{-1}O_1].
+$$
+
+On the other hand, the orbit $O_{s_i}$ is not closed and so in general $\pi^{-1}_{U_1,U_2}\overline{O}_{s_i}$ will not be a vector bundle.  But it will be if we make a smart choice:
+%\red{Comment on why it's so useful to `cheat' and use other choices of $U$: you actually get vector bundles!!. }
+ suppose that $U_1=U_2 = P_iU$ for some parabolic $P_i$ obtained by adding a single negative simple root $-\alpha_i$ to $B$, and consider
+$$
+\pi_{W_i,W_i}^{-1}\left(\overline{O}_{s_i}\right) = \left\{(g_1B,g_2B,v)~\big|~ v\in g_1P_iU\cap g_2P_iU, \quad (g_1B,g_2B)\in O_{s_i}\right\}.
+$$
+Recalling the description $\overline{O}_{s_i}=G/B\times_{G/P_i}G/B$, we see that in the above we have $g_1P_i=g_2P_i$ and hence the image under $\overline{\pi}_2$ of $\pi_{W_i,W_i}^{-1}\left(\overline{O}_{s_i}\right)$ is actually the entire space $X_{W_i}\times G/B$. So
+$$
+z_1^*\overline{\pi}_{2,*}\left(\pi^{-1}O_{s_i}\right) = [\mathcal{O}_{s_i}]\in K_G(G/B\times G/B)
+$$
+acts by exactly the same Demazure operator as in the $N=0$ case. Following Webster's notations, we call it
+$$
+\psi(W_i) := [\pi_{W_i,W_i}^{-1}\overline{O}_{s_i}].
+$$
+
+\begin{exercise}[Springer theory] 
+If $N=\mathfrak{g}$ and $U=\mathfrak{b}^*$, compute the action of 
+$$
+r(U,W_i)\psi(W_i,W_i)r(W_i,U)
+$$
+on $f\in K_T(\pt)$. 
+\end{exercise}
+
+We can rewrite the story in the small model for convolution where we work equivariantly for $B$ rather than $G$ as follows. If we set
+$$
+R_U = \{(gB,s)\in G/B\times N~\big|~ s\in gU_2\cap U_1\},
+$$
+then
+$$
+G\times ^B R_U\simeq X_{U_1}\times_N X_{U_2}, \quad [g_1,(g_2B,s)] \mapsto (g_1B,g_1g_2B, g_1s).
+$$
+
+
 \section{$K$-theoretic Coulomb branch}
-Quick backup to finite dimensional case: Springer resolution example. Commutative diagram/picture of conjugation by Thom class of the `matter'.
+
 
 Definition of $\Rc_{G,N}$ and computation of convolution for $G=\bC^*,N=\bC$. Example of $U_q(sl_2)$.
 
