@@ -243,6 +243,9 @@ urlcolor=blue]{hyperref}
 \newcommand{\GL}{\mathrm{GL}}
 \newcommand{\Li}{\mathrm{Li}}
 
+\newcommand{\Tc}{\mathcal{T}}
+
+
 \newcommand{\Coh}{\mathrm{Coh}}
 
 
@@ -413,7 +416,18 @@ f_*f^*[\Ec] = [\Ec]\cdot[\Oc_X]
 
 
 
-Even if $X$ is not smooth, the functor of tensoring with a locally free sheaf \emph{does} descend to a map on $K$-theory. 
+Even if $X$ is not smooth, the functor of tensoring with a locally free sheaf  \emph{does} descend to a map on $K$-theory. 
+
+%\begin{exercise}
+%Let $Y=Z\times_{S}S'$ and suppose that in the corresponding cartesian diagram
+%$$
+%\begin{tikzcd}
+%Y \arrow{r}{\tilde g} \arrow[swap]{d}{\tilde f}& Z \arrow{d}{f} \\
+%S' \arrow[swap]{r}{g} & S
+%\end{tikzcd}
+%$$
+%the map $g$ is a closed embedding (i.e. probably not flat!) of smooth varieties  and there exists a smooth fibration $\pi:E\rightarrow S$ containing $Z$ as closed subvariety such that $f=\pi|_{Z}$. Then the base change formula holds in $K$-theory.
+%\end{exercise}
 
 
 \subsection{Convolution}
@@ -684,7 +698,7 @@ $$
 $$
 The same formula holds for $H=B,T$, the only difference being that the base ring is the larger one $\bZ[\Lambda]=\bC[w_1^{\pm1},\ldots, w^{\pm1}_{n}]$ of all Laurent polynomials.
 
-To finish the calculation, we use the fact that \emph{all} $H$-equivariant bundles on $V$ are pulled back from $K_{H}(\pt)$:
+To finish the calculation, we use:
 \begin{claim}
 \label{claim:thom}
 The map $\pi^*\colon K_H(\pt)\rightarrow K_H(V)$ is an isomorphism.
@@ -706,7 +720,17 @@ Claim~\ref{claim:thom} is a special case of the \emph{Thom isomorphism}, a kind 
 If $E$ is a $G$-equivariant vector bundle on $X$, the map $\pi^*\colon K_G(X)\rightarrow K_G(E)$ is surjective, and hence an isomorphism with inverse $i^*$.
 \end{theorem}
 In other words, in $K$-theory we have the `wrong-way' composite $\pi^*\circ i^*=\mathrm{id}$.
-In fact, all that is needed is that $E$ is an affine bundle (i.e. without a canonical zero-section), but you have to work slightly harder for the injectivity -- see Chriss-Ginzberg Theorem 5.4.17.
+In fact, all that is needed is that $E$ is an affine bundle (i.e. without a canonical zero-section) -- see Chriss-Ginzberg Theorem 5.4.17. 
+
+In the case that $X=\pt$ above we can just see this directly, by observing that for free  modules $\pi^* i^*\Ec\simeq \Ec$, and since every module has a finite-length resolution by these we get the statement at the level of $K$-theory.
+
+\begin{exercise}
+Let $\Fc=\Oc_0$ be the structure sheaf of the origin in $V$. Compute $\pi^* i^*\Fc$ in the derived category of $V$.
+\end{exercise}
+
+\begin{exercise}
+Let $\Oc_{\{y=0\}}$ be the structure sheaf of the $x$-axis in $\mathbb{A}^2$ and $i:o\rightarrow \mathbb{A}^2$ the origin. Compute $i^*\Oc_{\{y=0\}}$ in two ways: by resolving $\Oc_{0}$, or by resolving $\Oc_{\{y=0\}}$. 
+\end{exercise}
 
 We can also use the Koszul resolution 
 $$
@@ -859,9 +883,11 @@ which vanishes if and only if $V_1=V_2$ as subspaces in $\mathbb{C}^n$, and give
 $$
 \bigwedge^\bullet\left(\mathcal{V}\boxtimes\mathcal{W}^\vee\right)\rightarrow\mathcal{O}_\Delta
 $$
-gives a resolution of the diagonal by sheaves in the image of the external tensor product map. We can prove the Thom isomorphism theorem by doing this for projective space $\bP^n=\Gr(k,n+1)$, where $\mathcal{V}=\mathcal{O}(-1)$ and $\mathcal{W}=\mathcal{T}_{\bP^n}(-1)$ is the tangent sheaf (if over an affine open $U_i$ we choose the generator $v\in\mathbb{C}^n$ so that $v_i=1$, then $u+ \langle v\rangle \in \mathbb{C}^n /\langle v\rangle$ corresponds to the tangent vector $\langle v+\epsilon u\rangle\subset\mathbb{C}^n$ ). Hence the Koszul complex gives Beilinson's resolution
+gives a resolution of the diagonal by sheaves in the image of the external tensor product map. We can prove the Thom isomorphism theorem by doing this for projective space $\bP^n=\Gr(1,n+1)$, where $\mathcal{V}=\mathcal{O}(-1)$ and $\mathcal{W}=\mathcal{T}_{\bP^n}(-1)$ is the tangent sheaf 
+%(if over an affine open $U_i$ we choose the generator $v\in\mathbb{C}^n$ so that $v_i=1$, then $u+ \langle v\rangle \in \mathbb{C}^n /\langle v\rangle$ corresponds to the tangent vector $\langle v+\epsilon u\rangle\subset\mathbb{C}^n$ )
+(recall that this comes from writing the tangent space $T_L\bP^{n-1}$ as all deformations mod trivial ones in a well-defined/coordinate-independent way: it identifies with $\Hom(L,E/L)$ where $\varphi$ corresponds to the deformation $[x]\mapsto [x+\epsilon\varphi(x)]$ where $x$ is any basis for $L$). Hence the Koszul complex gives Beilinson's resolution
 $$
-\bigoplus_{i=0}^n \mathcal{O}(i)\boxtimes\Omega_{\bP^n}^i(i)\rightarrow \mathcal{O}_{\Delta},
+\bigoplus_{i=0}^n \mathcal{O}(-i)\boxtimes\Omega_{\bP^n}^i(i)\rightarrow \mathcal{O}_{\Delta},
 $$
 and we get that $K_G(\bP^n)$ is spanned as a $K_G(\pt)$-module by the classes of the line bundles $\{\Oc(i)\}$ or alternatively by the vector bundles $\{\Omega_{\bP^n}^i(i)\}$.
 \begin{exercise}
@@ -882,13 +908,26 @@ $$
 $$
 and we conclude $K_G(V)$ is spanned by $j^*[\mathcal{O}_{\bP(\widetilde V)}(0)]=[\mathcal{O}_V]=\pi^*(\Oc_\pt)$. 
 
-Given a rank $n$ vector bundle $\mathcal{V}\rightarrow X$, we can do a relative version of the construction above, resolving the diagonal in the projective bundle $\bP(\mathcal{V})$ given by projectivizing the fibers of $\mathcal{V}$. This yields the \emph{projective bundle theorem}, which says that
+Given a rank $n$ vector bundle $\pi: \mathcal{V}\rightarrow X$, consider the projective bundle $\bP(\mathcal{V})$ given by projectivizing the fibers of $\mathcal{V}$. It has a tautological line bundle $\Oc_{\bP(\mathcal{V})}(-1)$ which is a sub-bundle of the bundle $\pi^*\mathcal{V}$, and now we get a resolution of the  diagonal 
+$$
+\Delta\subset \bP(\mathcal V)\times_X\bP(\mathcal V)
+$$
+in the projective bundle $\bP(\mathcal{V})$ given by projectivizing the fibers of $\mathcal{V}$:
+$$
+\bigoplus \Oc_{\bP(\mathcal{V})}(-i)\boxtimes\Omega_{\bP(\mathcal{V})/X}(i).
+$$
+The class $\mathcal{O}_\Delta$ acts by the identity on $K_G(\bP(\mathcal V)$ under the `relative' convolution 
+$$
+\bP(\mathcal V) \leftarrow \bP(\mathcal V)\times_X\bP(\mathcal V)\rightarrow \bP(\mathcal V).
+$$
+
+This yields the \emph{projective bundle theorem}, which says that
 \begin{align}
 \label{eq:projective-bundle}
-K_G(\bP(\mathcal{V}))\simeq \bigoplus_{i=0}^{n-1}K_G(X)[\Oc(i)]
+K_G(\bP(\mathcal{V}))\simeq \bigoplus_{i=0}^{n-1}\pi^*K_G(X)[\Oc(i)]
 \end{align}
 
-With this in hand.the same projective completion trick above works to prove the surjectivity part of Theorem~\ref{thm:thom-iso}.
+With this in hand the same projective completion trick above works to prove the surjectivity part of Theorem~\ref{thm:thom-iso}.
 
 
 \blue{Nonlinear version.}
@@ -1151,7 +1190,7 @@ is a resolution of singularities, and $R(q_0\times q_d)_*\Oc=\Oc$.
 \end{theorem}
 It follows from the theorem that if $p_i:\overline{O}_w \rightarrow G/B$ are the two projections we have $q_*q^*=p_*p^*$ and we conclude that the composite $L_{i_1}\circ\cdots\circ L_{i_d}$ is independent of the reduced word for $w$. In particular, the Demazure operators satisfy the Coxeter braid relations. And since by the cellular fibration lemma the classes of the $\overline{O}_w$ span $K_G(G/B\times G/B)$ over $K_G(\pt)$, we see that the Demazure operators for simple reflections generate.
 
-\subsection{Alternative model for the convolution}
+\subsection{Small version of the convolution}
 Recall from exercise~\ref{ex:small-model} that we can regard the $G$-space $G/B \times G/B$ as being the induction $G\times^B G/B$ of $G/B$ along $B\hookrightarrow G$. This way we get an isomorphism
 \begin{align}
 \label{eq:ires}
@@ -1165,10 +1204,10 @@ In other words, this map sends $\Fc\in K_B(G/B) $ to a sheaf $\widetilde\Fc$ on 
 $$
 q^*\widetilde{\Fc} \simeq \pi_2^*\Fc.
 $$
-We have
-$$
-\pi_2^*i^*\Gc
-$$
+%We have
+%$$
+%\pi_2^*i^*\Gc
+%$$
 We can re-express the convolution operation directly at the level of $B$-equivariant sheaves on $G/B$ as follows.  Consider the diagram
 \begin{equation}
 \label{eq:convolution-b}
@@ -1200,6 +1239,7 @@ $$
 $$
 
 \begin{lemma}
+\label{lem:big-v-small-1}
 The two convolutions are identified by the isomorphism $i^*$.
 \end{lemma}
 
@@ -1210,7 +1250,7 @@ $$
 $$
 and compare it against
 $$
-i^*\left(\Gc_1\star\Gc_2\right) = i^*\left( (p_{13})_*(p_{12}^*\Gc_1\otimes p_{23}^*\Gc_2\right).
+i^*\left(\Gc_1\star\Gc_2\right) = i^*\left( (p_{13})_*(p_{12}^*\Gc_1\otimes p_{23}^*\Gc_2)\right).
 $$
 Consider the Cartesian square of $B$-spaces
 $$
@@ -1220,8 +1260,8 @@ G/B \arrow{r}{i}&  G/B\times G/B
 \end{tikzcd}
 $$
 where $\tilde i([g,hB]) = (eB, gB, ghB).$
-{Since the $G$-equivariant sheaves on $(G/ B)^2$ are $i$-flat, }
-we can do base change to get
+Since the map $p_{13}$ is a (trivial) fibration and thus flat, $G/B$ and $(G/B)^3$ are Tor-independent over $(G/B)^2$
+we can do (derived) base change to get
 $$
 i^* (p_{13})_*\left(p_{12}^*\Gc_1\otimes p_{23}^*\Gc_2\right)= m_*\tilde i^*\left(p_{12}^*\Gc_1\otimes p_{23}^*\Gc_2\right)
 $$
@@ -1497,8 +1537,8 @@ $$
 \end{example}
 
 
-\begin{example}{(Mutation in $\Gr_{GL_n}$.)}
-Let $\Oc_{\Gr^k}$ be the structure sheaf of the closed orbit $\Gr^k:=\Gr^{\omega_k}$ in $\Gr_{GL_n}$. Recall that it has a canonical line bundle whose fiber is $\det(L_0/L)$, and write
+\begin{example}{(Mutation in $\Gr_{GL_n}$)}
+This time let's be lazy and ignore the $\mathbb{C}^*_q$-equivariance. Let $\Oc_{\Gr^k}$ be the structure sheaf of the closed orbit $\Gr^k:=\Gr^{\omega_k}$ in $\Gr_{GL_n}$. Recall that it has a line bundle whose fiber is $\det(L_0/L)$, and write
 $$
 \Oc_{\Gr^k}(r) = \Oc_{\Gr^k}\otimes\det(L_0/L)^r.
 $$
@@ -1557,69 +1597,72 @@ which gives the following relation in $K$-theory:
 
 
 
-\section{Warmup to matter}
+\section{Warmup to adding matter}
 
 Suppose $N$ is a representation of $G$. Even if $N$ is irreducible, the same will almost never be true of the $B$-representation we get when restricting $N$ to $B$, since the latter can only increase weights. So there will typically be lots of $B$-subrepresentations $U\subset N$. If we pick one we can form the induced $G$-space
 $$
-X_U := G\times^B U,
+\mathcal{T}_U := G\times^B U,
 $$
 which is a $G$-equivariant vector bundle over $X_{0}=G/B$ with fiber modeled on $U$.
 \begin{example}
-Take $N=\g$ to be the adjoint representation and $U=\mathfrak{n}=[\mathfrak{b},\mathfrak{b}]\subset \g$ to be the Lie algebra of the unipotent radical of $\mathfrak{b}$. Then $X_U\simeq T^*(G/B)$ is the cotangent bundle of $G/B$.
+Take $N=\g$ to be the adjoint representation and $U=\mathfrak{n}=[\mathfrak{b},\mathfrak{b}]\subset \g$ to be the Lie algebra of the unipotent radical of $\mathfrak{b}$. Then $\mathcal{T}_U\simeq T^*(G/B)$ is the cotangent bundle of $G/B$.
 \end{example}
 
-We'd like to incorporate these $B$-representations $U$, or equivalently the $G$-equivariant vector bundles $X_U$, into the convolution story somehow. But we need to be careful here,  since -- being vector bundles -- the varieties $X_U$ themselves are not proper.  Also recall that by the Thom isomorphism, we can identify 
+We'd like to incorporate these $B$-representations $U$, or equivalently the $G$-equivariant vector bundles $\mathcal{T}_U$, into the convolution story somehow. But we need to be careful here,  since -- being vector bundles -- the varieties $\mathcal{T}_U$ themselves are not proper.  Also recall that by the Thom isomorphism, we can identify 
 $$
-K_G(X_U)\simeq K_G(G/B)\simeq K_T(\pt),
+K_G(\mathcal{T}_U)\simeq K_G(G/B)\simeq K_T(\pt),
 $$
 so at least as modules over $K_G(\pt)$ we don't get anything new from the $X_U$ alone. 
 
 
-But where the $X_U$ really come into their own is that, as well as being a vector bundles over $G/B$, they come with a $G$-equivariant `action map' to the $G$-module $N$:
+But where the $\mathcal{T}_U$ really come into their own is that, as well as being a vector bundles over $G/B$, they come with a $G$-equivariant `action map' to the $G$-module $N$:
 $$
-\mu: X_U\rightarrow N, \quad [g,u]B\mapsto g\cdot u.
+\mu: \mathcal{T}_U\rightarrow N, \quad [g,u]B\mapsto g\cdot u.
 $$
 Unlike the projection to $G/B$, the action map $\mu$ is proper but is usually far from being a locally trivial fibration:
 \begin{example}
 In the case of $T^*G/B$ the image of this map $(g,u)B\mapsto gug^{-1}\in\g$ is the cone of all nilpotent elements $\mathcal{N}\subset \g$ and is a resolution of singularities of the latter, known as the Springer resolution. Over a regular element of $\mathcal{N}$ (in type $A$, a nilpotent matrix whose Jordan type has a single block) the fiber of $\mu$ consists of a single element (in type $A$, the flag determined by the Jordan basis.) But over the $0\in \g$, the fiber is all of $G/B$.
 
 \end{example}
-The action map gives us another way to view $X_U$ as
+The action map gives us another way to view $\mathcal{T}_U$ as
 $$
-X_U = \left\{ (gB,v)\in G/B\times N ~\big|~ v\in gU\subset N \right\}.
+\mathcal{T}_U = \left\{ (gB,v)\in G/B\times N ~\big|~ v\in gU\subset N \right\}.
 $$
 
 We can use the proper maps $\mu$ to form fiber products:
 $$
-X_{U_1}\times_N X_{U_2}=\{(g_1B,g_2B,v)\in G/B\times G/B\times N~\big|~ v\in g_1U_1\cap g_2U_2\}.
+\mathcal{T}_{U_1}\times_N \mathcal{T}_{U_2}=\{(g_1B,g_2B,v)\in G/B\times G/B\times N~\big|~ v\in g_1U_1\cap g_2U_2\}.
 $$
-Even if we're only interested in $K_G(X_U)$ for a single $U$, the ability to vary $U$ will still be useful.
+Even if we're only interested in $K_G(\mathcal{T}_U)$ for a single $U$, the ability to vary $U$ will still be useful.
  
-The fiber product $X_{U_1}\times_N X_{U_2}$ maps $G$-equivariantly to $G/B\times G/B$, but will generally no longer be a vector bundle: and over the pre-image of the orbit $O_w$ through $(gB,B)\in G/B\times G/B$ it is a vector bundle with fiber modeled on $wU_1\cap U_2$, i.e the $G$-equivariant vector bundle on $O_w$ induced from the $H=B\cap wBw^{-1}$-module $wU_1\cap U_2$. In particular, by the cellular fibration lemma $K_G(X_{U_1}\times_N X_{U_2})$ is a free module over $K_G(\pt)$ of rank $|W|^2$.
+The fiber product $\mathcal{T}_{U_1}\times_N \mathcal{T}_{U_2}$ maps $G$-equivariantly to $G/B\times G/B$, but will generally no longer be a vector bundle, or even smooth. Over the pre-image of the orbit $O_w$ through $(gB,B)\in G/B\times G/B$ it is a vector bundle with fiber modeled on $wU_1\cap U_2$, i.e the $G$-equivariant vector bundle on $O_w$ induced from the $H=B\cap wBw^{-1}$-module $wU_1\cap U_2$. In particular, by the cellular fibration lemma $K_G(\mathcal{T}_{U_1}\times_N \mathcal{T}_{U_2})$ is a free module over $K_G(\pt)$ of rank $|W|^2$.
 
 
 
-Suppose $M_1,M_2$ are smooth, proper $G$-varieties with equivariant vector bundles $E_1,E_2$. Since $E_1,E_2$ are not proper, we can't run the convolution story with them directly since pushforward from $E_1\times E_2$ will not be well-defined. On the other hand, suppose that we have a closed $G$-subvariety $i:Z\hookrightarrow E_1\times E_2$ (maybe not smooth) with the property that the restricted projection
+Suppose $M_1,M_2$ are smooth, proper $G$-varieties with equivariant vector bundles $E_1,E_2$. Since $E_1,E_2$ are not proper, we can't run the convolution story with them directly since pushforward from $E_1\times E_2$ will not be well-defined. On the other hand, suppose that we have a closed $G$-subscheme $i:Z\hookrightarrow E_1\times E_2$ (maybe not smooth) with the property that the restricted projection
 $$
 \overline{\pi}_2\colon Z\rightarrow E_1\times M_2
 $$
-is proper. Then $\pr_{E_1}\circ i:Z\rightarrow E_1$ is proper, and so for $\mathcal{M}\in K_G(Z)$ and $\alpha\in K_G(E_2)$ we get a well-defined convolution
+is proper. Then $\pr_{E_1}\circ i:Z\rightarrow E_1$ is proper, and so for $\mathcal{M}\in K_G(Z)$ and $\alpha\in K_G(E_2)$ we can form a convolution
 $$
-\mathcal{M}*\alpha = (\pr_{E_1}\circ i)_*\left(\mathcal{M}\otimes i^*\pr_{E_2}^*\alpha\right)\in K_G(E_1).
+\mathcal{M}*\alpha = \pr_{E_1,*}\left(i_*\mathcal{M}\otimes \pr_{E_2}^*\alpha\right)\in K_G(E_1).
 $$
+The tensor product/ring structure used here is the one from $K_G(E_1\times E_2)$, which is well-defined since $E_1\times E_2$ is smooth even if $Z$ is not. And the pushforward is well defined since the sheaf we apply it to is supported on $Z$, so it can be factored through $\overline{\pi}_2$.
 In particular, we can apply this  setup to 
 $$
-Z=Z_{U_1,U_2}=X_{U_1}\times_N X_{U_2}\subset X_{U_1}\times X_{U_2},
+Z=Z_{U_1,U_2}=\mathcal{T}_{U_1}\times_N \mathcal{T}_{U_2}\subset \mathcal{T}_{U_1}\times \mathcal{T}_{U_2},
 $$
-since in this case the map 
+since in this case the map $\overline{\pi}_2$ is just
 $$
-\overline{\pi}_2 \colon X_{U_1}\times_N X_{U_2}\rightarrow X_{U_1}\times G/B, \quad (g_1B,g_2B,v)\mapsto ((g_1B,v),g_2).
+\overline{\pi}_2 \colon \mathcal{T}_{U_1}\times_N \mathcal{T}_{U_2}\rightarrow \mathcal{T}_{U_1}\times G/B, \quad (g_1B,g_2B,v)\mapsto ((g_1B,v),g_2).
 $$ 
-is actually just a closed embedding. 
+
+
 
 Now return to the generality of the previous paragraph. Recall that we can use the Thom isomorphism to identify $K_G(E_i)\simeq K_G(M_i)$, and so we can think about $K_G(Z)$ as `acting' from $K_G(M_2)$ to $K_G(M_1)$. On the other hand, we already have seen something else that acts like this, namely $K_G(M_1\times M_2)$. 
 In fact, we have the following diagram which shows that this action actually factors through the old one of $K_G(M_1\times M_2)$:
 \begin{lemma}
+\label{lem:thom-diag}
 Let $z_1:M_1\times M_2\rightarrow E_1\times M_2$ be the zero-section inclusion. Then we have a commutative diagram
 $$
 \begin{tikzcd}
@@ -1631,10 +1674,12 @@ $$
 \begin{proof}
 Another standard argument with base-change/projection formula, see Chris-Ginzburg Lemma 5.4.27 (although watch out for typos).
 \end{proof}
-In our case, we have $M_1=M_2=G/B$ and the left vertical arrow is injective since $\overline{\pi}_2$ is a closed embedding and $z^*_1:K_G(X_{U_1})\simeq K_G(G/B)$ is the Thom isomorphism. In particular, the representation of $K_G(Z)$ on $K_G(G/B)$ coming from the diagram is \emph{faithful.}
 
 
-Recall that we analyzed the convolution algebra for $N=0$ by computing the action of classes of sheaves supported on the $G$-orbit closures $\overline{O}_1=O_1,\overline{O}_{s_i}\subset G/B\times G/B$ for the identity element and the simple reflections. The preimage $\pi^{-1}O_1$ in $Z_{U_1,U_2}$ is the vector bundle on the diagonally embedded $G/B\rightarrow (G/B)^2$ with fiber $gU_1\cap gU_2$ over $(gB,gB)$. Its image under $\overline{\pi}_2$ is a vector bundle on the diagonal of the zero section in $X_{U_1}\times G/B$. Hence $\mathcal{O}_{\pi^{-1}O_1}$ has a Koszul resolution by $\pi^*[U_1/(U_1\cap U_2)]^\vee$, where we write $U_1/(U_1\cap U_2)$ for the $G$-equivariant vector bundle on the orbit induced by the $B$-rep $U_1/(U_1\cap U_2)$ (i.e. having the latter as its fiber over the identity coset.) 
+In our case, we have $M_1=M_2=G/B$ and the left vertical arrow is injective since $\overline{\pi}_2$ is a closed embedding and $z^*_1:K_G(\mathcal{T}_{U_1})\simeq K_G(G/B)$ is the Thom isomorphism. In particular, the representation of $K_G(Z)$ on $K_G(G/B)$ coming from the diagram is \emph{faithful.}
+
+
+Recall that we analyzed the convolution algebra for $N=0$ by computing the action of classes of sheaves supported on the $G$-orbit closures $\overline{O}_1=O_1,\overline{O}_{s_i}\subset G/B\times G/B$ for the identity element and the simple reflections. The preimage $\pi^{-1}O_1$ in $Z_{U_1,U_2}$ is the vector bundle on the diagonally embedded $G/B\rightarrow (G/B)^2$ with fiber $gU_1\cap gU_2$ over $(gB,gB)$. Its image under $\overline{\pi}_2$ is a vector bundle on the diagonal of the zero section in $\mathcal{T}_{U_1}\times G/B$. Hence $\mathcal{O}_{\pi^{-1}O_1}$ has a Koszul resolution by $\pi^*[U_1/(U_1\cap U_2)]^\vee$, where we write $U_1/(U_1\cap U_2)$ for the $G$-equivariant vector bundle on the orbit induced by the $B$-rep $U_1/(U_1\cap U_2)$ (i.e. having the latter as its fiber over the identity coset.) 
 
 Using this resolution to compute the restriction $z_1^*$ we get
 $$
@@ -1656,7 +1701,7 @@ On the other hand, the orbit $O_{s_i}$ is not closed and so in general $\pi^{-1}
 $$
 \pi_{W_i,W_i}^{-1}\left(\overline{O}_{s_i}\right) = \left\{(g_1B,g_2B,v)~\big|~ v\in g_1P_iU\cap g_2P_iU, \quad (g_1B,g_2B)\in O_{s_i}\right\}.
 $$
-Recalling the description $\overline{O}_{s_i}=G/B\times_{G/P_i}G/B$, we see that in the above we have $g_1P_i=g_2P_i$ and hence the image under $\overline{\pi}_2$ of $\pi_{W_i,W_i}^{-1}\left(\overline{O}_{s_i}\right)$ is actually the entire space $X_{W_i}\times G/B$. So
+Recalling the description $\overline{O}_{s_i}=G/B\times_{G/P_i}G/B$, we see that in the above we have $g_1P_i=g_2P_i$ and hence the image under $\overline{\pi}_2$ of $\pi_{W_i,W_i}^{-1}\left(\overline{O}_{s_i}\right)$ is actually the entire space $\mathcal{T}_{W_i}\times G/B$. So
 $$
 z_1^*\overline{\pi}_{2,*}\left(\pi^{-1}O_{s_i}\right) = [\mathcal{O}_{s_i}]\in K_G(G/B\times G/B)
 $$
@@ -1672,18 +1717,166 @@ r(U,W_i)\psi(W_i,W_i)r(W_i,U)
 $$
 on $f\in K_T(\pt)$. 
 \end{exercise}
+Using the diagram in Lemma~\ref{lem:thom-diag} we can define composition $K_G(Z_{U_1,U_2})\otimes_{K_G(\pt)} K_G(Z_{U_2,U_3})\rightarrow K_G(Z_{U_1,U_3})$ A more intrinsic way to define this convolution is as follows: consider
+$$
+p_{12}:\mathcal{T}_{U_1}\times \mathcal{T}_{U_2}\times_N \mathcal{T}_{U_3} \rightarrow \mathcal{T}_{U_1}\times \mathcal{T}_{U_2},\quad p_{23}:\mathcal{T}_{U_1}\times \mathcal{T}_{U_2}\times_N \mathcal{T}_{U_3} \rightarrow \mathcal{T}_{U_2}\times_N \mathcal{T}_{U_3}.
+$$
+Now suppose $\mathcal{F}$ is a sheaf on $\mathcal{T}_{U_1}\times_N \mathcal{T}_{U_2}$ and $\Gc$ a sheaf on $\mathcal{T}_{U_2}\times_N \mathcal{T}_{U_3}$.
+To define their convolution we take a replace $\Fc$ it by its resolution $\mathcal{F}'$ by locally free sheaves on the smooth variety $\mathcal{T}_{U_1}\times \mathcal{T}_{U_2}$. Then for \emph{any} equivariant sheaf $\mathcal{G}$ on $\mathcal{T}_{U_2}\times_N \mathcal{T}_{U_3}$ the tensor product
+$$
+p_{12}^*\mathcal{F}'\otimes^L p_{23}^*\mathcal{G} \in D^b\Coh_G(\mathcal{T}_{U_1}\times \mathcal{T}_{U_2}\times_N \mathcal{T}_{U_3})
+$$
+is a well-defined coherent complex with cohomology sheaves supported on $\mathcal{T}_{U_1}\times_N \mathcal{T}_{U_2}\times_N \mathcal{T}_{U_3}$. Pushing it forward along $p_{13}$ gives a complex on $\mathcal{T}_{U_1}\times \mathcal{T}_{U_3}$ with cohomology supported on $\mathcal{T}_{U_1}\times_N \mathcal{T}_{U_3}$, and this sheaf is our $\mathcal{F}\star\mathcal{G}$.
 
-We can rewrite the story in the small model for convolution where we work equivariantly for $B$ rather than $G$ as follows. If we set
+\subsection{Small version}
+We can rewrite the story in the small model for convolution where we work equivariantly for $B$ rather than $G$ as follows. {For simplicity} let's focus on the case of a fixed $U_1=U_2=U$ so we have an actual convolution algebra $K_G(\Tc_U\times_N \Tc_U)$.
+Then the $G$-spaces appearing in the big convolution diagram are 
 $$
-R_U = \{(gB,s)\in G/B\times N~\big|~ s\in gU_2\cap U_1\},
+\Tc_U\times \Tc_U,\quad \Tc_U\times_N \Tc_U, \quad \Tc_U\times \Tc_U\times_N \Tc_U.
 $$
-then
-$$
-G\times ^B R_U\simeq X_{U_1}\times_N X_{U_2}, \quad [g_1,(g_2B,s)] \mapsto (g_1B,g_1g_2B, g_1s).
-$$
+So for each of these $G$-spaces $X$, we need to find a corresponding $B$-space $Y$ with an isomorphism $K_B(Y)\simeq K_G(X)$. We'll do this using induction and the Thom isomorphism as follows. 
 
 
-\section{$K$-theoretic Coulomb branch}
+If we set
+$$
+R_{U} = \{(gB,s)\in G/B\times N~\big|~ s\in U\cap gU\},
+$$
+then we have an isomorphism of $G$-spaces
+\begin{align}
+\label{eq:r-ind}
+G\times ^B R_{U}\simeq \mathcal{T}_{U}\times_N \mathcal{T}_{U}, \quad [g_1,(g_2B,s)] \mapsto (g_1B,g_1g_2B, g_1s).
+\end{align}
+So if 
+$$
+i:R_U\rightarrow \mathcal{T}_{U}\times_N \mathcal{T}_{U},\quad \quad (gB,s) \mapsto (eB,gB, s),
+$$
+we have an isomorphism
+\begin{equation}
+\label{eq:id-1}
+\begin{tikzcd}
+K_G(\Tc_U\times_N \Tc_U)\arrow{r}{i^*}& K_B(R_{U}).
+\end{tikzcd}
+\end{equation}
+We can think about $R_U$ as closed subvariety of the vector bundle $\Tc_U$. So we still have a $B$-equivariant projection to $R_U\rightarrow G/B$, but it is no longer a locally trivial fibration: the fiber over the $B$-orbit (i.e. Schubert cell) $BwB/B\subset G/B$ is the $B$-equivariant vector bundle with fiber $U\cap  
+wU$ at $eB$. 
+
+%\red{cell structure}
+%Recall that $Z_{U_1,U_2}$ can be singular in general, and the same goes for $R_U$. So we should understand it as a closed subscheme of some ambient smooth variety, which we take to be the vector bundle $\mathcal{T}_U$. 
+By the same token as~\eqref{eq:r-ind} we have an isomorphism of $G$-spaces
+$$
+G\times ^B \Tc_{U}\simeq G/B\times \mathcal{T}_{U}.
+$$
+This we can further include into the vector bundle $\Tc_U\times \Tc_U$ as the zero-section:
+$$
+z_1: G\times ^B \Tc_{U}\simeq G/B\times \mathcal{T}_{U} \hookrightarrow \Tc_U\times \Tc_U
+$$
+Then combining the Thom isomorphism $z_1^*$ and the induction isomorphism we can identify
+\begin{equation}
+\label{eq:id-2}
+\begin{tikzcd}
+K_G(\mathcal{T}_{U}\times \mathcal{T}_{U})\arrow{r}{z_1^*} & K_G( G\times^B \mathcal{T}_{U})\arrow{r}{i^*}^* & K_B(\mathcal{T}_{U}),
+\end{tikzcd}
+\end{equation}
+So based on the identifications~\eqref{eq:id-1} and~\eqref{eq:id-2}, we take the pair of input spaces to the small convolution diagram to be $\Tc_U$ and $R_U$. 
+%$$
+%S_{U_1,U_2,U_3}=\{(g_1B,g_2B,s)\in G/B\times G/B\times N~\big|~ s\in U_1\cap g_2U_2\cap g_3U_3\}
+%$$
+To get the small analog of the `top space' $\Tc_U\times \Tc_U\times_N \Tc_U$ consider the induced $G$-space obtained by regarding $G\times^B R_U\simeq \mathcal{T}_{U}\times_N \mathcal{T}_{U}$ as a $B$-space:
+\begin{align*}
+G\times ^B \left(G\times^B R_U\right)  &\simeq \left\{(g_1B,g_2B,g_3B,s)\subset (G/B)^3\times N~\big|~ s\in g_2U\cap g_3U\right\}\\
+&=G/B\times \Tc_U\times_N\Tc_U.
+\end{align*}
+This includes into the $G$-space $
+\mathcal{T}_{U}\times \mathcal{T}_{U}\times_N \mathcal{T}_{U}
+$ as the zero section:
+$$
+z_1: G\times ^B \left(\mathcal{T}_{U}\times_N \mathcal{T}_{U}\right) \rightarrow \mathcal{T}_{U}\times \mathcal{T}_{U}\times_N \mathcal{T}_{U}.
+$$
+Then combining the Thom isomorphism and the induction isomorphism we get an identification 
+\begin{equation}
+\label{eq:id3}
+\begin{tikzcd}
+K_G(\mathcal{T}_{U}\times \mathcal{T}_{U}\times_N \mathcal{T}_{U})\arrow{r}{z_1^*} & K_G(G\times ^B \left(G\times^B \mathcal{R}_{U}\right))\arrow{r}{(i')^*} & K_B(G\times^B \mathcal{R}_{U}),
+\end{tikzcd}
+\end{equation}
+So we will use the $B$-space $G\times^BR_{U}$ as our stand-in for the top space in the big convolution diagram.  
+
+Putting everything together, we're led to look at the following diagram of $B$-spaces
+\begin{equation}
+\label{eq:fd-bfn-diag}
+\begin{tikzcd}
+\mathcal{T}_{U}\times {R}_{U} & G\times R_U \arrow{l}[swap]{p} \arrow{r}{q} &   G\times^B R_U \arrow{r}{m} & \Tc_U.
+\end{tikzcd}
+\end{equation}
+
+If we use the descriptions of $\Tc_U$ and $R_U$  as being embedded in $G/B\times N$,  the maps here are given by
+\begin{align*}
+p(g_1,(g_2B,s)) &= ((g_1,g_1s),(g_2,s)) \\
+q(g_1,(g_2B,s)) &= (g_1B,g_1g_2B,g_1s) \in G/B\times G/B\times N\\
+m(h_1B,(h_2B,s)) &= (h_2B,s).
+\end{align*}
+If we use instead the `balanced product' description of all the spaces, they read
+\begin{align*}
+p(g_1,[g_2,v]) &= ([g_1,g_2v],[g_2,v]) \\
+q(g_1,[g_2,v]) &= [g_1,[g_2,v]] \\
+m([h_1,[h_2,w]]) &= [h_1h_2,w].
+\end{align*}
+If we write $p=(p_T,p_R)$, then although the map $p_R:G\times R_U\rightarrow R_U$ is flat (it's just the projection to the second factor), the map $p_T:G\times R_U\rightarrow \Tc_U$ is not. So in order to apply the diagram~\eqref{eq:fd-bfn-diag} to define a convolution on $K_B(R_U)$ we have to:
+\begin{enumerate}
+\item Given $B$-equivariant sheaves $\Fc,\Gc$ on $R_U$, resolve $\Fc$ by a finite length complex of vector bundles $\Fc'$ on $\Tc_U$.
+\item Form $p_T^*\Fc' \otimes ^L p_R^*\Gc$, which is again a coherent sheaf on $G\times R_U$. 
+\item Just like in the  $N=0$ case, the sheaf $p_T^*\Fc' \otimes ^L p_R^*\Gc$ is actually $B\times B$ equivariant with respect to the action
+$$
+(b_1,b_2)\cdot (g_1,[g_2,v]) = (b_1g_1b_2^{-1},[b_2g_2,v]).
+$$
+Hence it descends to a $B$-equivariant sheaf $\Fc'\widetilde{\boxtimes}\Gc$ on $G\times^B R_U$ characterized by the property that
+$$
+q^*(\Fc'\widetilde{\boxtimes}\Gc)\simeq p_T^*\Fc' \otimes ^L p_R^*\Gc.
+$$
+Note the lack of smoothness causes no issues with this pullback since the map $q$ is flat.
+\item Push this sheaf forward under $m$ to get a sheaf on $\Tc_U$:
+$$
+\Fc*\Gc = m_*\left(\Fc'\widetilde{\boxtimes}\Gc\right).
+$$
+Since  $mqp^{-1}(R_U\times R_U)\subset R_U$, we see that if $\Fc$ was supported on $R_U$ then the same will be true of $\Fc*\Gc$.
+\end{enumerate}
+
+\begin{lemma}
+The isomorphisms~\eqref{eq:id-1}, ~\eqref{eq:id-2},~\eqref{eq:id3} identify the big convolution $\star$ with the small one $*$:
+$$
+(z_1\circ i)^*\Fc * i^*\Gc \simeq (z_1\circ i)^*\left(\Fc\star \Gc \right).
+$$
+\end{lemma}
+\begin{proof}
+Same diagram chase as the proof of Lemma~\ref{lem:big-v-small-1}.
+\end{proof}
+We also have the following `small' analog of the diagram from Lemma~\ref{lem:thom-diag}:
+\begin{lemma}
+If $j:R_U\hookrightarrow T_U$ denotes the inclusion and $z:G/B\rightarrow \Tc_U$ the zero-section, the composite
+\begin{equation}
+\label{eq:fdhom}
+\begin{tikzcd}
+\iota\colon K_B(R_U)\arrow{r}{j_*} & K_B(\Tc_U)\arrow{r}{z^*} &K_B(G/B)
+\end{tikzcd}
+\end{equation}
+is an injective algebra homomorphism with respect to the `small' convolution products.
+\end{lemma}
+\begin{proof}
+You check that 
+$$
+\iota(\Fc)*\iota(\Gc)\simeq z^*\left(\iota(\Fc*\Gc)\right)
+$$
+using the Cartesian square
+$$
+\begin{tikzcd}
+G\times^B G/B \arrow{r}{\tilde z} \arrow[swap]{d}{\overline m}& G\times^B \Tc_U \arrow{d}{m'} \\
+G/B \arrow[swap]{r}{z} & \Tc_U
+\end{tikzcd}
+$$
+for which base change still holds in $K$-theory since $m'$ being a (trivial) fibration implies that $G/B$ and $G\times^B \Tc_U$ are Tor-independent over $\Tc_U$.
+\end{proof}
+%\blue{Derive BFN-style convolution diagram this way. Then compare to what you get from the diagram in the Lemma.} 
+\section{$K$-theoretic Coulomb branch for polarizable matter}
 
 
 Definition of $\Rc_{G,N}$ and computation of convolution for $G=\bC^*,N=\bC$. Example of $U_q(sl_2)$.
